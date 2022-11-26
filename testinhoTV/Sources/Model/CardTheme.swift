@@ -10,5 +10,5 @@ import SwiftUI
 struct CardTheme: Identifiable {
     var id: Int
     var nameTheme: String
-    var imageTheme: UIColor // alterar para image
+    var imageTheme: String // alterar para image
 }

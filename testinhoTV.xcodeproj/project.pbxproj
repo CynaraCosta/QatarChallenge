@@ -15,6 +15,11 @@
 		A4C8B5002930F930001F3B3F /* CardPlayerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4C8B4FF2930F930001F3B3F /* CardPlayerViewModel.swift */; };
 		A4C8B5022932751F001F3B3F /* CardTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4C8B5012932751F001F3B3F /* CardTheme.swift */; };
 		A4C8B5042932756C001F3B3F /* CardThemeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4C8B5032932756C001F3B3F /* CardThemeViewModel.swift */; };
+		A4C8B50629328C78001F3B3F /* CupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4C8B50529328C78001F3B3F /* CupView.swift */; };
+		A4C8B50829328EEE001F3B3F /* BRView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4C8B50729328EEE001F3B3F /* BRView.swift */; };
+		A4C8B50A29328F75001F3B3F /* LegendsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4C8B50929328F75001F3B3F /* LegendsView.swift */; };
+		A4C8B50C29328FA9001F3B3F /* PremierLeagueView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4C8B50B29328FA9001F3B3F /* PremierLeagueView.swift */; };
+		A4C8B50E29328FD5001F3B3F /* LaLigaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4C8B50D29328FD5001F3B3F /* LaLigaView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +32,11 @@
 		A4C8B4FF2930F930001F3B3F /* CardPlayerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardPlayerViewModel.swift; sourceTree = "<group>"; };
 		A4C8B5012932751F001F3B3F /* CardTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardTheme.swift; sourceTree = "<group>"; };
 		A4C8B5032932756C001F3B3F /* CardThemeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardThemeViewModel.swift; sourceTree = "<group>"; };
+		A4C8B50529328C78001F3B3F /* CupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CupView.swift; sourceTree = "<group>"; };
+		A4C8B50729328EEE001F3B3F /* BRView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BRView.swift; sourceTree = "<group>"; };
+		A4C8B50929328F75001F3B3F /* LegendsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LegendsView.swift; sourceTree = "<group>"; };
+		A4C8B50B29328FA9001F3B3F /* PremierLeagueView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PremierLeagueView.swift; sourceTree = "<group>"; };
+		A4C8B50D29328FD5001F3B3F /* LaLigaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaLigaView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,6 +125,11 @@
 			isa = PBXGroup;
 			children = (
 				A4C8B4EA2930EC15001F3B3F /* ThemesView.swift */,
+				A4C8B50529328C78001F3B3F /* CupView.swift */,
+				A4C8B50729328EEE001F3B3F /* BRView.swift */,
+				A4C8B50929328F75001F3B3F /* LegendsView.swift */,
+				A4C8B50B29328FA9001F3B3F /* PremierLeagueView.swift */,
+				A4C8B50D29328FD5001F3B3F /* LaLigaView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -193,7 +208,12 @@
 				A4C8B4FE2930F8B9001F3B3F /* CardPlayer.swift in Sources */,
 				A4C8B4EB2930EC15001F3B3F /* ThemesView.swift in Sources */,
 				A4C8B4E92930EC15001F3B3F /* testinhoTVApp.swift in Sources */,
+				A4C8B50629328C78001F3B3F /* CupView.swift in Sources */,
 				A4C8B5002930F930001F3B3F /* CardPlayerViewModel.swift in Sources */,
+				A4C8B50E29328FD5001F3B3F /* LaLigaView.swift in Sources */,
+				A4C8B50829328EEE001F3B3F /* BRView.swift in Sources */,
+				A4C8B50A29328F75001F3B3F /* LegendsView.swift in Sources */,
+				A4C8B50C29328FA9001F3B3F /* PremierLeagueView.swift in Sources */,
 				A4C8B5022932751F001F3B3F /* CardTheme.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
