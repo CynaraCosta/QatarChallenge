@@ -11,7 +11,7 @@ import SwiftUI
 struct testinhoTVApp: App {
     var body: some Scene {
         WindowGroup {
-            GameView()
+            ThemesView()
         }
     }
 }
