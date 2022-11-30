@@ -121,12 +121,20 @@ struct CupView: View {
                 
             }
             
-        }.onReceive(timerTimer) { _ in
+        }
+        .background(
+            Image("bgGameView")
+                .resizable()
+                .edgesIgnoringSafeArea(.all)
+                .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
+        )
+        .onReceive(timerTimer) { _ in
             if time > 0 && timerRunning {
                 time -= 1
             } else {
                 timerRunning = false
             }
+        
             
             
         }

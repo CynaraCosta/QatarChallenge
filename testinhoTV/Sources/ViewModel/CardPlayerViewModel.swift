@@ -19,10 +19,6 @@ class CardPlayerViewModel: ObservableObject {
         cardsPlayers = cardsData
     }
     
-    func shuffleCards(){
-        cardsPlayers.shuffled()
-    }
-    
 }
 
 let cardsData = [
