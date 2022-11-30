@@ -75,15 +75,13 @@ struct CupView: View {
                             .foregroundColor(.black)
                         
                     }
+                    .padding(.leading, 54)
                     .edgesIgnoringSafeArea(.leading)
-                    .frame(width: UIScreen.main.bounds.width * 0.31, height: UIScreen.main.bounds.height * 0.09)
+                    .frame(width: UIScreen.main.bounds.width * 0.31
+                           , height: UIScreen.main.bounds.height * 0.09)
                     
                     .background(Rectangle().fill(.white))
-                    .cornerRadius(16)
-                    
-                    
-                    
-                    
+                    .cornerRadius(16, corners: [.topRight, .bottomRight])
                     
                     Text("Olaaaa eu sou uma dica muito grande e você vai precisar de uma quebra de linha")
                         .frame(width: UIScreen.main.bounds.width * 0.61, height: UIScreen.main.bounds.height * 0.1)
@@ -93,8 +91,10 @@ struct CupView: View {
                         .background(.white)
                         .cornerRadius(16)
                     
-                    
-                }.padding()
+                }
+                
+                .edgesIgnoringSafeArea(.leading)
+                .padding()
                 
                 LazyVGrid(columns: adaptiveColumns, spacing: 40) {
                     ForEach(players, id: \.self) { player in

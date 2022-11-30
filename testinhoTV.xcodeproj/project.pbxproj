@@ -20,6 +20,7 @@
 		A4C8B50A29328F75001F3B3F /* LegendsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4C8B50929328F75001F3B3F /* LegendsView.swift */; };
 		A4C8B50C29328FA9001F3B3F /* PremierLeagueView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4C8B50B29328FA9001F3B3F /* PremierLeagueView.swift */; };
 		A4C8B50E29328FD5001F3B3F /* LaLigaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4C8B50D29328FD5001F3B3F /* LaLigaView.swift */; };
+		A4C8B5112937E1BA001F3B3F /* RoundedCorner.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4C8B5102937E1BA001F3B3F /* RoundedCorner.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +38,7 @@
 		A4C8B50929328F75001F3B3F /* LegendsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LegendsView.swift; sourceTree = "<group>"; };
 		A4C8B50B29328FA9001F3B3F /* PremierLeagueView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PremierLeagueView.swift; sourceTree = "<group>"; };
 		A4C8B50D29328FD5001F3B3F /* LaLigaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaLigaView.swift; sourceTree = "<group>"; };
+		A4C8B5102937E1BA001F3B3F /* RoundedCorner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedCorner.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,6 +91,7 @@
 		A4C8B4F62930F83E001F3B3F /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				A4C8B50F2937E1AC001F3B3F /* Extensions */,
 				A4C8B4FA2930F87A001F3B3F /* Views */,
 				A4C8B4F92930F873001F3B3F /* ViewModel */,
 				A4C8B4F82930F86C001F3B3F /* Model */,
@@ -132,6 +135,14 @@
 				A4C8B50D29328FD5001F3B3F /* LaLigaView.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		A4C8B50F2937E1AC001F3B3F /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				A4C8B5102937E1BA001F3B3F /* RoundedCorner.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -204,6 +215,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A4C8B5112937E1BA001F3B3F /* RoundedCorner.swift in Sources */,
 				A4C8B5042932756C001F3B3F /* CardThemeViewModel.swift in Sources */,
 				A4C8B4FE2930F8B9001F3B3F /* CardPlayer.swift in Sources */,
 				A4C8B4EB2930EC15001F3B3F /* ThemesView.swift in Sources */,
