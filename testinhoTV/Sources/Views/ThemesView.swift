@@ -25,22 +25,22 @@ struct ThemesView: View {
                     ScrollView(.horizontal) {
                         HStack {
                             ForEach(viewModelThemes.cardsThemes) { card in
-                                    
+                                
                                 NavigationLink(destination: getThemeView(Theme: card)) {
-                                        VStack {
-                                            Image("premierLeague")
-                                                .clipShape(RoundedRectangle(cornerRadius: 12 ))
-                                            Text(card.nameTheme)
-                                                .foregroundColor(.primary)
-                                                .font(.system(size: 48, weight: .bold))
-                                                .padding()
-                                                
-                                        }
+                                    VStack {
+                                        Image("premierLeague")
+                                            .clipShape(RoundedRectangle(cornerRadius: 12 ))
+                                        Text(card.nameTheme)
+                                            .foregroundColor(.primary)
+                                            .font(.system(size: 48, weight: .bold))
+                                            .padding()
+                                        
+                                    }
                                     
-                                    }.buttonStyle(PlainButtonStyle())
-                                    
-                                    
-        //                        }
+                                }.buttonStyle(PlainButtonStyle())
+                                
+                                
+                                //                        }
                                 
                                 
                             }
@@ -51,12 +51,13 @@ struct ThemesView: View {
                 }
                 
             }
-        }.background(
-            Image("bgFut")
-                .resizable()
-                .scaledToFill()
-                .edgesIgnoringSafeArea(.all)
-        )
+        }
+//        }.background(
+//            Image("bgFut")
+//                .resizable()
+//                .scaledToFill()
+//                .edgesIgnoringSafeArea(.all)
+//        )
         
         
     }
