@@ -84,7 +84,7 @@ struct CupView: View {
                     .cornerRadius(16, corners: [.topRight, .bottomRight])
                     
                     Text("Olaaaa eu sou uma dica muito grande e você vai precisar de uma quebra de linha")
-                        .frame(width: UIScreen.main.bounds.width * 0.61, height: UIScreen.main.bounds.height * 0.1)
+                        .frame(width: UIScreen.main.bounds.width * 0.63, height: UIScreen.main.bounds.height * 0.12)
                         .multilineTextAlignment(.center)
                         .font(.system(size: 40, weight: .semibold))
                         .foregroundColor(.black)
