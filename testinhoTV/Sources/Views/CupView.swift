@@ -48,28 +48,53 @@ struct CupView: View {
                 
                 HStack{
                     
-                    HStack {
+                    HStack (spacing: 24) {
                         Circle()
-                            .fill(.red)
-                            .frame(width: UIScreen.main.bounds.width * 0.04, height: UIScreen.main.bounds.height * 0.07, alignment: .center)
-                        
-                            .modifier(AnimatingNumberOverlay(points: CGFloat(points)))
-                        Rectangle()
                             .fill(.blue)
                             .frame(width: UIScreen.main.bounds.width * 0.04, height: UIScreen.main.bounds.height * 0.07, alignment: .center)
-                            .cornerRadius(4)
-                            .modifier(AnimatingNumberOverlay(points: CGFloat(points)))
-                        Text("00:\(time < 10 ? zero : "")\(time)")
-                            .font(.system(size: 48, weight: .semibold))
                             .padding()
+                        
+                        Text("\(points)")
+                        
+                            .foregroundColor(.black)
+                        
+                        Rectangle()
+                            .fill(.red)
+                            .frame(width: UIScreen.main.bounds.width * 0.04, height: UIScreen.main.bounds.height * 0.07, alignment: .center)
+                            .cornerRadius(4)
+                            .padding()
+                        
+                        Text("\(points)")
+                        
+                            .foregroundColor(.black)
+                        
+                        Text("00:\(time < 10 ? zero : "")\(time)")
+                            .frame(width: UIScreen.main.bounds.width * 0.05, height: UIScreen.main.bounds.height * 0.065)
+                            .font(.system(size: 32, weight: .semibold))
+                            .padding()
+                            .foregroundColor(.black)
+                        
                     }
+                    .edgesIgnoringSafeArea(.leading)
+                    .frame(width: UIScreen.main.bounds.width * 0.31, height: UIScreen.main.bounds.height * 0.09)
+                    
+                    .background(Rectangle().fill(.white))
+                    .cornerRadius(16)
+                    
+                    
+                    
+                    
                     
                     Text("Olaaaa eu sou uma dica muito grande e você vai precisar de uma quebra de linha")
+                        .frame(width: UIScreen.main.bounds.width * 0.61, height: UIScreen.main.bounds.height * 0.1)
                         .multilineTextAlignment(.center)
-                        .font(.system(size: 56, weight: .bold))
-                        .padding()
+                        .font(.system(size: 40, weight: .semibold))
+                        .foregroundColor(.black)
+                        .background(.white)
+                        .cornerRadius(16)
                     
-                }
+                    
+                }.padding()
                 
                 LazyVGrid(columns: adaptiveColumns, spacing: 40) {
                     ForEach(players, id: \.self) { player in
@@ -105,26 +130,5 @@ struct CupView: View {
             
             
         }
-    }
-    
-    struct AnimatingNumberOverlay: AnimatableModifier {
-        
-        var points: CGFloat
-        var animatableData: CGFloat {
-            get {
-                points
-            }
-            
-            set {
-                points = newValue
-            }
-            
-        }
-        
-        func body(content: Content) -> some View {
-            return content.overlay(Text("\(Int(points))").foregroundColor(.white)
-                .font(.system(size: 40, weight: .semibold)))
-        }
-        
     }
 }
