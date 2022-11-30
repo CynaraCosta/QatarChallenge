@@ -1,3 +1,4 @@
+
 //
 //  CardPlayerViewModel.swift
 //  testinhoTV
@@ -16,6 +17,10 @@ class CardPlayerViewModel: ObservableObject {
     
     func addCards() {
         cardsPlayers = cardsData
+    }
+    
+    func shuffleCards(){
+        cardsPlayers.shuffled()
     }
     
 }

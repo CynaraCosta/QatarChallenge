@@ -20,7 +20,8 @@ struct CupView: View {
     
     @State private var points = 1
     
-    let data = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15]
+    @ObservedObject var viewModelPlayers = CardPlayerViewModel()
+    
     let players = [
         "Vinícius Junior",
         "Gavi",
@@ -42,8 +43,11 @@ struct CupView: View {
     
     var body: some View {
         ZStack {
+            
             VStack {
-                HStack {
+                
+                HStack{
+                    
                     HStack {
                         Circle()
                             .fill(.red)
@@ -55,12 +59,16 @@ struct CupView: View {
                             .frame(width: UIScreen.main.bounds.width * 0.04, height: UIScreen.main.bounds.height * 0.07, alignment: .center)
                             .cornerRadius(4)
                             .modifier(AnimatingNumberOverlay(points: CGFloat(points)))
+                        Text("00:\(time < 10 ? zero : "")\(time)")
+                            .font(.system(size: 48, weight: .semibold))
+                            .padding()
                     }
+                    
                     Text("Olaaaa eu sou uma dica muito grande e você vai precisar de uma quebra de linha")
                         .multilineTextAlignment(.center)
                         .font(.system(size: 56, weight: .bold))
-                    Text("00:\(time < 10 ? zero : "")\(time)")
-                        .font(.system(size: 48, weight: .semibold))
+                        .padding()
+                    
                 }
                 
                 LazyVGrid(columns: adaptiveColumns, spacing: 40) {
