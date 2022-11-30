@@ -55,7 +55,7 @@ struct CupView: View {
                             .padding()
                         
                         Text("\(points)")
-                        
+                            .frame(width: UIScreen.main.bounds.width * 0.02, height: UIScreen.main.bounds.height * 0.065)
                             .foregroundColor(.black)
                         
                         Rectangle()
@@ -65,7 +65,7 @@ struct CupView: View {
                             .padding()
                         
                         Text("\(points)")
-                        
+                            .frame(width: UIScreen.main.bounds.width * 0.02, height: UIScreen.main.bounds.height * 0.065)
                             .foregroundColor(.black)
                         
                         Text("00:\(time < 10 ? zero : "")\(time)")
