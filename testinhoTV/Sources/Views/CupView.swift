@@ -21,25 +21,8 @@ struct CupView: View {
     @State private var points = 1
     
     @ObservedObject var viewModelPlayers = CardPlayerViewModel()
+    @State private var list = CardPlayerViewModel().cardsPlayers2.shuffled()
     
-    let players = [
-        "Vinícius Junior",
-        "Gavi",
-        "Vlahović",
-        "Alisson",
-        "Neymar",
-        "Messi",
-        "Cristiano Ronaldo",
-        "Cavani",
-        "Aboubakar",
-        "Takuma Asano",
-        "Son Heung-min",
-        "Kylian Mbappé",
-        "Lewandowski",
-        "Lucas Paquetá",
-        "Richarlison"
-        
-    ]
     
     var body: some View {
         ZStack {
@@ -97,7 +80,7 @@ struct CupView: View {
                 .padding()
                 
                 LazyVGrid(columns: adaptiveColumns, spacing: 40) {
-                    ForEach(players, id: \.self) { player in
+                    ForEach(list, id: \.self) { player in
                         Button (action: {
                             withAnimation{
                                 points += 1
@@ -134,7 +117,6 @@ struct CupView: View {
             } else {
                 timerRunning = false
             }
-        
             
             
         }
