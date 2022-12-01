@@ -106,7 +106,7 @@ struct CupView: View {
             
         }
         .background(
-            Image("bgGameView")
+            Image("Background")
                 .resizable()
                 .edgesIgnoringSafeArea(.all)
                 .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
