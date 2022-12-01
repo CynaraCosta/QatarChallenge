@@ -21,6 +21,8 @@
 		A4C8B50C29328FA9001F3B3F /* PremierLeagueView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4C8B50B29328FA9001F3B3F /* PremierLeagueView.swift */; };
 		A4C8B50E29328FD5001F3B3F /* LaLigaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4C8B50D29328FD5001F3B3F /* LaLigaView.swift */; };
 		A4C8B5112937E1BA001F3B3F /* RoundedCorner.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4C8B5102937E1BA001F3B3F /* RoundedCorner.swift */; };
+		A4C8B51529392D6E001F3B3F /* ClueAnswer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4C8B51429392D6E001F3B3F /* ClueAnswer.swift */; };
+		A4C8B51729392FD0001F3B3F /* ClueAnswerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4C8B51629392FD0001F3B3F /* ClueAnswerViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,6 +41,8 @@
 		A4C8B50B29328FA9001F3B3F /* PremierLeagueView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PremierLeagueView.swift; sourceTree = "<group>"; };
 		A4C8B50D29328FD5001F3B3F /* LaLigaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaLigaView.swift; sourceTree = "<group>"; };
 		A4C8B5102937E1BA001F3B3F /* RoundedCorner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedCorner.swift; sourceTree = "<group>"; };
+		A4C8B51429392D6E001F3B3F /* ClueAnswer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClueAnswer.swift; sourceTree = "<group>"; };
+		A4C8B51629392FD0001F3B3F /* ClueAnswerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClueAnswerViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,6 +115,7 @@
 			children = (
 				A4C8B4FD2930F8B9001F3B3F /* CardPlayer.swift */,
 				A4C8B5012932751F001F3B3F /* CardTheme.swift */,
+				A4C8B51429392D6E001F3B3F /* ClueAnswer.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -120,6 +125,7 @@
 			children = (
 				A4C8B4FF2930F930001F3B3F /* CardPlayerViewModel.swift */,
 				A4C8B5032932756C001F3B3F /* CardThemeViewModel.swift */,
+				A4C8B51629392FD0001F3B3F /* ClueAnswerViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -221,6 +227,8 @@
 				A4C8B4EB2930EC15001F3B3F /* ThemesView.swift in Sources */,
 				A4C8B4E92930EC15001F3B3F /* testinhoTVApp.swift in Sources */,
 				A4C8B50629328C78001F3B3F /* CupView.swift in Sources */,
+				A4C8B51529392D6E001F3B3F /* ClueAnswer.swift in Sources */,
+				A4C8B51729392FD0001F3B3F /* ClueAnswerViewModel.swift in Sources */,
 				A4C8B5002930F930001F3B3F /* CardPlayerViewModel.swift in Sources */,
 				A4C8B50E29328FD5001F3B3F /* LaLigaView.swift in Sources */,
 				A4C8B50829328EEE001F3B3F /* BRView.swift in Sources */,
