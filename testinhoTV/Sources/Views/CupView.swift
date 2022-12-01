@@ -98,6 +98,7 @@ struct CupView: View {
                     LazyVGrid(columns: adaptiveColumns, spacing: 40) {
                         ForEach(list) { player in
                             Button (action: {
+                                print("clicou")
                                 withAnimation{
                                     points += 1
                                     isPopUp = true
