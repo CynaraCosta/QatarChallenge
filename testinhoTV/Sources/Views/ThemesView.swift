@@ -14,45 +14,55 @@ struct ThemesView: View {
     var body: some View {
         ZStack {
             
-            NavigationView {
-                VStack(alignment: .center, spacing: 40) {
+            NavigationStack {
+                VStack(alignment: .center, spacing: 20) {
                     Text("Escolha o tema")
                         .font(.system(size: 80, weight: .bold))
-                        .foregroundColor(.primary)
+                        .foregroundColor(.black)
                         .padding()
+                    
                     
                     
                     ScrollView(.horizontal) {
                         HStack {
                             ForEach(viewModelThemes.cardsThemes) { card in
-                                    
                                 NavigationLink(destination: getThemeView(Theme: card)) {
-                                        VStack {
-                                            Image("premierLeague")
-                                                .clipShape(RoundedRectangle(cornerRadius: 12 ))
-                                            Text(card.nameTheme)
-                                                .foregroundColor(.primary)
-                                                .font(.system(size: 48, weight: .bold))
-                                                .padding()
-                                                
-                                        }
+                                    VStack {
+                                        Image("premierLeague")
+                                            .clipShape(RoundedRectangle(cornerRadius: 12 ))
+                                        Text(card.nameTheme)
+                                            .foregroundColor(.primary)
+                                            .font(.system(size: 48, weight: .bold))
+                                            .padding()
+                                        
+                                    }
                                     
-                                    }.buttonStyle(PlainButtonStyle())
-                                    
-                                    
-        //                        }
-                                
+                                }.buttonStyle(PlainButtonStyle())
                                 
                             }
                         }.padding(80)
+                        .focusSection()
                     }
                     .padding(-80)
+                    .focusSection()
+                    
+//                    HStack{
+                    NavigationLink(destination: RulesView()){
+                        Image("option")
+                            .resizable()
+                            .frame(width: 307,height: 72,alignment: .center)
+                    }
+                    .focusSection()
+                    .buttonStyle(PlainButtonStyle())
+                    
+//                    }.focusSection()
                     
                 }
                 
             }
+            
         }.background(
-            Image("bgFut")
+            Image(ImageConstants.shared.BACKGROUND)
                 .resizable()
                 .scaledToFill()
                 .edgesIgnoringSafeArea(.all)
@@ -73,6 +83,8 @@ struct ThemesView: View {
     default: EmptyView()
     }
 }
+
+
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
