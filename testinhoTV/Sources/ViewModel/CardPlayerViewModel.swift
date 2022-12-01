@@ -23,9 +23,21 @@ class CardPlayerViewModel: ObservableObject {
 }
 
 let cardsData = [
-    CardPlayer(name: "Harry Kane", image: "fotinhaa", nacionality: "Inglesa", club: "Spurs", rating: 85, position: "ST"),
-    CardPlayer(name: "Kylian Mbappé", image: "fotinhaa", nacionality: "Francesa", club: "Paris Saint-Germain", rating: 92, position: "ST"),
-    CardPlayer(name: "Heung Min Son", image: "fotinhaa", nacionality: "Sul Coreana", club: "Tottenham", rating: 89, position: "LW"),
+    CardPlayer(name: "messi", image: "messiURL"),
+    CardPlayer(name: "lewandowski", image: "lewandowskiURL"),
+    CardPlayer(name: "aboubakar", image: "aboubakarURL"),
+    CardPlayer(name: "messi", image: "messiURL"),
+    CardPlayer(name: "lewandowski", image: "lewandowskiURL"),
+    CardPlayer(name: "aboubakar", image: "aboubakarURL"),
+    CardPlayer(name: "messi", image: "messiURL"),
+    CardPlayer(name: "lewandowski", image: "lewandowskiURL"),
+    CardPlayer(name: "aboubakar", image: "aboubakarURL"),
+    CardPlayer(name: "messi", image: "messiURL"),
+    CardPlayer(name: "lewandowski", image: "lewandowskiURL"),
+    CardPlayer(name: "aboubakar", image: "aboubakarURL"),
+    CardPlayer(name: "messi", image: "messiURL"),
+    CardPlayer(name: "lewandowski", image: "lewandowskiURL"),
+    CardPlayer(name: "aboubakar", image: "aboubakarURL"),
 ]
 
 let players = [

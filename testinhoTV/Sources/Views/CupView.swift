@@ -21,7 +21,7 @@ struct CupView: View {
     @State private var points = 1
     
     @ObservedObject var viewModelPlayers = CardPlayerViewModel()
-    @State private var list = CardPlayerViewModel().cardsPlayers2.shuffled()
+    @State private var list = CardPlayerViewModel().cardsPlayers.shuffled()
     
     
     var body: some View {
@@ -31,7 +31,7 @@ struct CupView: View {
                 
                 HStack{
                     
-                    HStack (spacing: 24) {
+                    HStack (spacing: 8) {
                         Circle()
                             .fill(.blue)
                             .frame(width: UIScreen.main.bounds.width * 0.04, height: UIScreen.main.bounds.height * 0.07, alignment: .center)
@@ -41,15 +41,23 @@ struct CupView: View {
                             .frame(width: UIScreen.main.bounds.width * 0.02, height: UIScreen.main.bounds.height * 0.065)
                             .foregroundColor(.black)
                         
+                        Text(" - ")
+                            .frame(width: UIScreen.main.bounds.width * 0.02, height: UIScreen.main.bounds.height * 0.065)
+                            .foregroundColor(.black)
+                        
+                        
+                        Text("\(points)")
+                            .frame(width: UIScreen.main.bounds.width * 0.02, height: UIScreen.main.bounds.height * 0.065)
+                            .foregroundColor(.black)
+                        
+                        
                         Rectangle()
                             .fill(.red)
                             .frame(width: UIScreen.main.bounds.width * 0.04, height: UIScreen.main.bounds.height * 0.07, alignment: .center)
                             .cornerRadius(4)
                             .padding()
                         
-                        Text("\(points)")
-                            .frame(width: UIScreen.main.bounds.width * 0.02, height: UIScreen.main.bounds.height * 0.065)
-                            .foregroundColor(.black)
+                        
                         
                         Text("00:\(time < 10 ? zero : "")\(time)")
                             .frame(width: UIScreen.main.bounds.width * 0.05, height: UIScreen.main.bounds.height * 0.065)
@@ -61,7 +69,7 @@ struct CupView: View {
                     .padding(.leading, 54)
                     .edgesIgnoringSafeArea(.leading)
                     .frame(width: UIScreen.main.bounds.width * 0.31
-                           , height: UIScreen.main.bounds.height * 0.09)
+                           , height: UIScreen.main.bounds.height * 0.098)
                     
                     .background(Rectangle().fill(.white))
                     .cornerRadius(16, corners: [.topRight, .bottomRight])
@@ -80,7 +88,7 @@ struct CupView: View {
                 .padding()
                 
                 LazyVGrid(columns: adaptiveColumns, spacing: 40) {
-                    ForEach(list, id: \.self) { player in
+                    ForEach(list) { player in
                         Button (action: {
                             withAnimation{
                                 points += 1
@@ -88,14 +96,16 @@ struct CupView: View {
                             
                         }, label: {
                             ZStack {
-                                Rectangle()
-                                    .frame(width: UIScreen.main.bounds.width * 0.1, height: UIScreen.main.bounds.height * 0.2)
-                                    .cornerRadius(8)
-                                    .foregroundColor(.primary)
                                 
-                                Text("\(player)")
-                                    .foregroundColor(.black)
-                                    .font(.system(size: 18, weight: .regular))
+//                                Rectangle()
+//                                    .frame(width: UIScreen.main.bounds.width * 0.1, height: UIScreen.main.bounds.height * 0.2)
+//                                    .cornerRadius(8)
+//                                    .foregroundColor(.primary)
+                                
+                                Image("\(player.image)")
+                                    .resizable()
+                                    .frame(width: UIScreen.main.bounds.width * 0.1, height: UIScreen.main.bounds.height * 0.2)
+                                
                             }
                         }).buttonStyle(CardButtonStyle())
                         
