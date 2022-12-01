@@ -23,6 +23,7 @@
 		A4C8B5112937E1BA001F3B3F /* RoundedCorner.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4C8B5102937E1BA001F3B3F /* RoundedCorner.swift */; };
 		A4C8B51529392D6E001F3B3F /* ClueAnswer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4C8B51429392D6E001F3B3F /* ClueAnswer.swift */; };
 		A4C8B51729392FD0001F3B3F /* ClueAnswerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4C8B51629392FD0001F3B3F /* ClueAnswerViewModel.swift */; };
+		A4C8B51929393874001F3B3F /* ChosePopUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4C8B51829393874001F3B3F /* ChosePopUp.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -43,6 +44,7 @@
 		A4C8B5102937E1BA001F3B3F /* RoundedCorner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedCorner.swift; sourceTree = "<group>"; };
 		A4C8B51429392D6E001F3B3F /* ClueAnswer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClueAnswer.swift; sourceTree = "<group>"; };
 		A4C8B51629392FD0001F3B3F /* ClueAnswerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClueAnswerViewModel.swift; sourceTree = "<group>"; };
+		A4C8B51829393874001F3B3F /* ChosePopUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChosePopUp.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -139,6 +141,7 @@
 				A4C8B50929328F75001F3B3F /* LegendsView.swift */,
 				A4C8B50B29328FA9001F3B3F /* PremierLeagueView.swift */,
 				A4C8B50D29328FD5001F3B3F /* LaLigaView.swift */,
+				A4C8B51829393874001F3B3F /* ChosePopUp.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -232,6 +235,7 @@
 				A4C8B5002930F930001F3B3F /* CardPlayerViewModel.swift in Sources */,
 				A4C8B50E29328FD5001F3B3F /* LaLigaView.swift in Sources */,
 				A4C8B50829328EEE001F3B3F /* BRView.swift in Sources */,
+				A4C8B51929393874001F3B3F /* ChosePopUp.swift in Sources */,
 				A4C8B50A29328F75001F3B3F /* LegendsView.swift in Sources */,
 				A4C8B50C29328FA9001F3B3F /* PremierLeagueView.swift in Sources */,
 				A4C8B5022932751F001F3B3F /* CardTheme.swift in Sources */,
