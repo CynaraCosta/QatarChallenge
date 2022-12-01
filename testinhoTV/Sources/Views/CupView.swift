@@ -29,12 +29,14 @@ struct CupView: View {
     var body: some View {
         ZStack {
             
-            ZStack {
-                Image("Background")
-                    .resizable()
-                    .edgesIgnoringSafeArea(.all)
-                    .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
-                
+            
+            Image("Background")
+                .resizable()
+                .edgesIgnoringSafeArea(.all)
+                .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
+                .blur(radius: isPopUp ? blurAmount: 0.0)
+            
+            if isPopUp == false {
                 VStack {
                     
                     HStack{
@@ -107,11 +109,6 @@ struct CupView: View {
                             }, label: {
                                 ZStack {
                                     
-    //                                Rectangle()
-    //                                    .frame(width: UIScreen.main.bounds.width * 0.1, height: UIScreen.main.bounds.height * 0.2)
-    //                                    .cornerRadius(8)
-    //                                    .foregroundColor(.primary)
-                                    
                                     Image("\(player.image)")
                                         .resizable()
                                         .frame(width: UIScreen.main.bounds.width * 0.1, height: UIScreen.main.bounds.height * 0.2)
@@ -123,18 +120,13 @@ struct CupView: View {
                     }.padding()
                     
                 }
-            }.blur(radius: isPopUp ? blurAmount: 0.0)
-            
-            ChosePopUp(show: $isPopUp)
+            } else {
+                ChosePopUp(show: $isPopUp)
+            }
+   
             
         }
-        
-//        .background(
-//            Image("Background")
-//                .resizable()
-//                .edgesIgnoringSafeArea(.all)
-//                .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
-//        )
+
         .onReceive(timerTimer) { _ in
             if time > 0 && timerRunning {
                 time -= 1

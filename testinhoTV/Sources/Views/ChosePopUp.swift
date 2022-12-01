@@ -19,6 +19,10 @@ struct ChosePopUp: View {
                     HStack {
                         Button(action: {
                             print("verde")
+                            withAnimation{
+                                show = false
+                            }
+                            
                         }) {
                             Image("chuteCard")
                                 .resizable()
@@ -27,6 +31,9 @@ struct ChosePopUp: View {
                         
                         Button(action: {
                             print("vermelho")
+                            withAnimation{
+                                show = false
+                            }
                         }) {
                             Image("redCard")
                                 .resizable()
