@@ -13,7 +13,6 @@ struct ThemesView: View {
     
     var body: some View {
         ZStack {
-            
             NavigationStack{
                 VStack(alignment: .center,spacing: 80) {
                     VStack(spacing: 70){
@@ -40,7 +39,6 @@ struct ThemesView: View {
                         .foregroundColor(.white)
                         .cornerRadius(8)
                         .buttonStyle(PlainButtonStyle())
-                        
                     }
                     .focusSection()
                     .padding(.bottom, 10)
@@ -49,15 +47,12 @@ struct ThemesView: View {
                 }
                 
             }
-            
         }.background(
             Image(ImageConstants.shared.BACKGROUND)
                 .resizable()
                 .scaledToFill()
                 .edgesIgnoringSafeArea(.all)
         )
-        
-        
     }
     
 }
