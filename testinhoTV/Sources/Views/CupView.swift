@@ -10,7 +10,7 @@ import SwiftUI
 struct CupView: View {
     
     @State var timerRunning = true
-    @State var time: Int = 15
+    @State var time: Int = 59
     @State var intervalTime: Int = 5
     
     let zero = "0"
@@ -32,7 +32,12 @@ struct CupView: View {
     @ObservedObject var viewModelPlayers = CardPlayerViewModel()
     @State private var list = CardPlayerViewModel().cardsPlayers.shuffled()
     
-    @State private var answer = ClueAnswerViewModel().clues.randomElement()!.answer
+//    @State private var answer = ClueAnswerViewModel().clues.randomElement()!.answer
+    
+    @State private var clues = ClueAnswerViewModel().clues[0].clues
+    @State private var answer = ClueAnswerViewModel().clues[0].answer
+    
+    @State private var howManyClues: Int = 0
     
     @State private var choose: [CardPlayer] = []
     @State private var eliminated: [CardPlayer] = []
@@ -45,9 +50,9 @@ struct CupView: View {
                 .resizable()
                 .edgesIgnoringSafeArea(.all)
                 .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
-                .blur(radius: isPopUp || isTimeUp ? blurAmount: 0.0)
+                .blur(radius: (isPopUp || isTimeUp) && howManyClues != 6 ? blurAmount: 0.0)
             
-            if isPopUp == false && isTimeUp == false {
+            if isPopUp == false && isTimeUp == false && howManyClues <= 6{
                 VStack {
                     
                     HStack{
@@ -95,7 +100,7 @@ struct CupView: View {
                         .background(Rectangle().fill(.white))
                         .cornerRadius(16, corners: [.topRight, .bottomRight])
                         
-                        Text("Olaaaa eu sou uma dica muito grande e você vai precisar de uma quebra de linha")
+                        Text("\(clues[howManyClues])")
                             .frame(width: UIScreen.main.bounds.width * 0.63, height: UIScreen.main.bounds.height * 0.12)
                             .multilineTextAlignment(.center)
                             .font(.system(size: 40, weight: .semibold))
@@ -139,9 +144,14 @@ struct CupView: View {
                 ChosePopUp(show: $isPopUp, choosenPlayer: $choose, eliminates: $eliminated, answerUser: $answerUser)
             }
             
-            else if isTimeUp {
-                ChangeTeamView(whichTeam: $whichTeam, isTimeUp: $isTimeUp, time: $time)
+            else if isTimeUp && howManyClues <= 5{
+                ChangeTeamView(whichTeam: $whichTeam, isTimeUp: $isTimeUp, time: $time, howManyTimes: $howManyClues)
             }
+            
+            else if howManyClues == 7 {
+                EndGameView()
+            }
+            
         }
         
         .onReceive(timerTimer) { _ in
