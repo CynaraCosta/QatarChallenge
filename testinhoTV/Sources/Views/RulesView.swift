@@ -15,3 +15,4 @@ struct RulesView: View {
         Text("Regras muito legais")
     }
 }
+

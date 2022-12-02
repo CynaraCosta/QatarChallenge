@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "Background PEGA ESSE.png",
+      "filename" : "titleRectangle.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "Background PEGA ESSE@2x.png",
+      "filename" : "titleRectangle@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "Background PEGA ESSE@3x.png",
+      "filename" : "titleRectangle@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

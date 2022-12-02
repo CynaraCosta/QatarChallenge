@@ -10,52 +10,46 @@ import SwiftUI
 struct ThemesView: View {
     
     @ObservedObject var viewModelThemes = CardThemeViewModel()
-    
+     
     var body: some View {
         ZStack {
             
-            NavigationStack {
-                VStack(alignment: .center, spacing: 20) {
-                    Text("Escolha o tema")
-                        .font(.system(size: 80, weight: .bold))
-                        .foregroundColor(.black)
-                        .padding()
-                    
-                    
-                    
-                    ScrollView(.horizontal) {
-                        HStack {
-                            ForEach(viewModelThemes.cardsThemes) { card in
-                                NavigationLink(destination: getThemeView(Theme: card)) {
-                                    VStack {
-                                        Image("premierLeague")
-                                            .clipShape(RoundedRectangle(cornerRadius: 12 ))
-                                        Text(card.nameTheme)
-                                            .foregroundColor(.primary)
-                                            .font(.system(size: 48, weight: .bold))
-                                            .padding()
-                                        
-                                    }
+            NavigationView {
+                VStack(alignment: .center,spacing: 80) {
+                    VStack(spacing: 70){
+                        Image(ImageConstants.shared.TITLE_RECTANGLE)
+                            .overlay(TitleOverlay(),alignment: .center)
+                        
+                        ScrollView(.horizontal) {
+                            HStack(spacing: 0) {
+                                ForEach(viewModelThemes.cardsThemes) { card in
+                                    NavigationLink(destination: getThemeView(Theme: card)) {
+                                        Image(ImageConstants.shared.MENU_CARD_COPA)
+                                    }.buttonStyle(PlainButtonStyle())
                                     
-                                }.buttonStyle(PlainButtonStyle())
-                                
-                            }
-                        }.padding(80)
+                                }
+                            }.padding(80)
+                        }
+                        .padding(-80)
                         .focusSection()
                     }
-                    .padding(-80)
-                    .focusSection()
-                    
-//                    HStack{
-                    NavigationLink(destination: RulesView()){
-                        Image("option")
-                            .resizable()
-                            .frame(width: 307,height: 72,alignment: .center)
+                    NavigationStack{
+                        NavigationLink(destination: RulesView()){
+                            Button ("Instruções"){
+                                
+                            }
+                            .font(.system(size: 40, weight: .semibold))
+                            .background(Color(UIColor(red: 20/255, green: 140/255, blue: 0/255, alpha: 1.0)))
+                            .foregroundColor(.white)
+                            .cornerRadius(8)
+                            .buttonStyle(PlainButtonStyle())
+                        }
+                        
                     }
                     .focusSection()
+                    .padding(.bottom, 10)
                     .buttonStyle(PlainButtonStyle())
                     
-//                    }.focusSection()
                     
                 }
                 
@@ -83,8 +77,6 @@ struct ThemesView: View {
     default: EmptyView()
     }
 }
-
-
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
