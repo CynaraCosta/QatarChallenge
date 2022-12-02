@@ -3,6 +3,9 @@ import SwiftUI
 struct ChosePopUp: View {
     
     @Binding var show: Bool
+    @Binding var choosenPlayer: [CardPlayer]
+    @Binding var eliminates: [CardPlayer]
+    @Binding var answerUser: [CardPlayer]
     
     var body: some View {
         if show {
@@ -19,6 +22,8 @@ struct ChosePopUp: View {
                     HStack {
                         Button(action: {
                             print("verde")
+                            answerUser.append(choosenPlayer[0])
+                            choosenPlayer.removeLast()
                             withAnimation{
                                 show = false
                             }
@@ -31,6 +36,8 @@ struct ChosePopUp: View {
                         
                         Button(action: {
                             print("vermelho")
+                            eliminates.append(choosenPlayer[0])
+                            choosenPlayer.removeLast()
                             withAnimation{
                                 show = false
                             }

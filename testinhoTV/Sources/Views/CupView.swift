@@ -25,10 +25,16 @@ struct CupView: View {
     @ObservedObject var viewModelPlayers = CardPlayerViewModel()
     @State private var list = CardPlayerViewModel().cardsPlayers.shuffled()
     
+    @State private var answer = ClueAnswerViewModel().clues.randomElement()!.answer
+    
+    @State private var choose: [CardPlayer] = []
+    @State private var eliminated: [CardPlayer] = []
+    @State private var answerUser: [CardPlayer] = []
+    
+    @State private var placeholder: String = "premierLeague"
     
     var body: some View {
         ZStack {
-            
             
             Image("Background")
                 .resizable()
@@ -100,18 +106,22 @@ struct CupView: View {
                     LazyVGrid(columns: adaptiveColumns, spacing: 40) {
                         ForEach(list) { player in
                             Button (action: {
-                                print("clicou")
                                 withAnimation{
                                     points += 1
                                     isPopUp = true
+                                    choose.append(player)
                                 }
                                 
                             }, label: {
                                 ZStack {
                                     
-                                    Image("\(player.image)")
-                                        .resizable()
-                                        .frame(width: UIScreen.main.bounds.width * 0.1, height: UIScreen.main.bounds.height * 0.2)
+                                    Image("\(viewModelPlayers.whichImage(eliminatedList: eliminated,
+                                                                         player: player,
+                                                                         placeholder: placeholder,
+                                                                         playerImage: player.image))"
+                                    )
+                                    .resizable()
+                                    .frame(width: UIScreen.main.bounds.width * 0.1, height: UIScreen.main.bounds.height * 0.2)
                                     
                                 }
                             }).buttonStyle(CardButtonStyle())
@@ -121,12 +131,12 @@ struct CupView: View {
                     
                 }
             } else {
-                ChosePopUp(show: $isPopUp)
+                ChosePopUp(show: $isPopUp, choosenPlayer: $choose, eliminates: $eliminated, answerUser: $answerUser)
             }
-   
+            
             
         }
-
+        
         .onReceive(timerTimer) { _ in
             if time > 0 && timerRunning {
                 time -= 1
