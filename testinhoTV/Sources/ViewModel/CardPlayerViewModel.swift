@@ -20,6 +20,18 @@ class CardPlayerViewModel: ObservableObject {
         cardsPlayers = cardsData
     }
     
+    func whichImage(eliminatedList: [CardPlayer],
+                    player: CardPlayer,
+                    placeholder: String,
+                    playerImage: String) -> String {
+        if eliminatedList.first(where: {$0 == player}) != nil {
+            return placeholder
+            
+        } else {
+            return playerImage
+        }
+    }
+    
 }
 
 let cardsData = [
