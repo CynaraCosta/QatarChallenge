@@ -11,6 +11,14 @@ class ClueAnswerViewModel: ObservableObject {
         clues = cluesData
     }
     
+    func getAnswer(clues: ClueAnswer) -> String {
+        return clues.answer
+    }
+    
+    func getClues(clues: ClueAnswer) -> [String] {
+        return clues.clues
+    }
+    
 }
 
 let cluesData = [

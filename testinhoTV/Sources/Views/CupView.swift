@@ -11,6 +11,7 @@ struct CupView: View {
     
     @State var timerRunning = true
     @State var time: Int = 59
+    @State var countDownTimer: Int = 3 + 3
     let zero = "0"
     let timerTimer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
     
@@ -25,7 +26,7 @@ struct CupView: View {
     @ObservedObject var viewModelPlayers = CardPlayerViewModel()
     @State private var list = CardPlayerViewModel().cardsPlayers.shuffled()
     
-    @State private var answer = ClueAnswerViewModel().clues.randomElement()!.answer
+    @State private var chosenClue = ClueAnswerViewModel().clues.randomElement()!
     
     @State private var choose: [CardPlayer] = []
     @State private var eliminated: [CardPlayer] = []
