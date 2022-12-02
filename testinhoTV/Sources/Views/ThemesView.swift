@@ -10,11 +10,11 @@ import SwiftUI
 struct ThemesView: View {
     
     @ObservedObject var viewModelThemes = CardThemeViewModel()
-     
+    
     var body: some View {
         ZStack {
             
-            NavigationView {
+            NavigationStack{
                 VStack(alignment: .center,spacing: 80) {
                     VStack(spacing: 70){
                         Image(ImageConstants.shared.TITLE_RECTANGLE)
@@ -33,23 +33,18 @@ struct ThemesView: View {
                         .padding(-80)
                         .focusSection()
                     }
-                    NavigationStack{
-                        NavigationLink(destination: RulesView()){
-                            Button ("Instruções"){
-                                
-                            }
-                            .font(.system(size: 40, weight: .semibold))
-                            .background(Color(UIColor(red: 20/255, green: 140/255, blue: 0/255, alpha: 1.0)))
-                            .foregroundColor(.white)
-                            .cornerRadius(8)
-                            .buttonStyle(PlainButtonStyle())
-                        }
+                    NavigationLink(destination: RulesView()){
+                        Button ("Instruções"){}
+                        .font(.system(size: 40, weight: .semibold))
+                        .background(Color(UIColor(red: 20/255, green: 140/255, blue: 0/255, alpha: 1.0)))
+                        .foregroundColor(.white)
+                        .cornerRadius(8)
+                        .buttonStyle(PlainButtonStyle())
                         
                     }
                     .focusSection()
                     .padding(.bottom, 10)
                     .buttonStyle(PlainButtonStyle())
-                    
                     
                 }
                 
