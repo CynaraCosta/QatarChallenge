@@ -10,8 +10,11 @@ import SwiftUI
 struct CupView: View {
     
     @State var timerRunning = true
-    @State var time: Int = 59
+    @State var time: Int = 15
+    @State var intervalTime: Int = 5
+    
     let zero = "0"
+    
     let timerTimer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
     
     private let adaptiveColumns = [
@@ -19,8 +22,12 @@ struct CupView: View {
     ]
     
     @State private var isPopUp = false
+    @State private var isTimeUp = false
     @State private var blurAmount: CGFloat = 32.0
     @State private var points = 1
+    
+    @State var whichTeam: Bool = true
+    // true = azul - false = vermelho
     
     @ObservedObject var viewModelPlayers = CardPlayerViewModel()
     @State private var list = CardPlayerViewModel().cardsPlayers.shuffled()
@@ -38,9 +45,9 @@ struct CupView: View {
                 .resizable()
                 .edgesIgnoringSafeArea(.all)
                 .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
-                .blur(radius: isPopUp ? blurAmount: 0.0)
+                .blur(radius: isPopUp || isTimeUp ? blurAmount: 0.0)
             
-            if isPopUp == false {
+            if isPopUp == false && isTimeUp == false {
                 VStack {
                     
                     HStack{
@@ -126,21 +133,27 @@ struct CupView: View {
                     }.padding()
                     
                 }
-            } else {
+            }
+            
+            else if isPopUp == true {
                 ChosePopUp(show: $isPopUp, choosenPlayer: $choose, eliminates: $eliminated, answerUser: $answerUser)
             }
             
-            
+            else if isTimeUp {
+                ChangeTeamView(whichTeam: $whichTeam, isTimeUp: $isTimeUp, time: $time)
+            }
         }
         
         .onReceive(timerTimer) { _ in
             if time > 0 && timerRunning {
                 time -= 1
             } else {
-                timerRunning = false
+                isTimeUp = true
+//                timerRunning = false
             }
             
             
         }
     }
 }
+
