@@ -10,51 +10,63 @@ import SwiftUI
 struct ThemesView: View {
     
     @ObservedObject var viewModelThemes = CardThemeViewModel()
+    @State private var isCountdown = false
     
     var body: some View {
-        ZStack {
-            NavigationStack{
-                VStack(alignment: .center,spacing: 80) {
-                    VStack(spacing: 70){
-                        Image(ImageConstants.shared.TITLE_RECTANGLE)
-                            .overlay(TitleOverlay(),alignment: .center)
-                        
-                        ScrollView(.horizontal) {
-                            HStack(spacing: 0) {
-                                ForEach(viewModelThemes.cardsThemes) { card in
-                                    NavigationLink(destination: getThemeView(Theme: card)) {
-                                        Image(ImageConstants.shared.MENU_CARD_COPA)
-                                    }.buttonStyle(PlainButtonStyle())
-                                    
+        if !isCountdown{
+            ZStack {
+                NavigationStack{
+                    VStack(alignment: .center,spacing: 80) {
+                        VStack(spacing: 70){
+                            Image(ImageConstants.shared.TITLE_RECTANGLE)
+                                .overlay(TitleOverlay(),alignment: .center)
+                            
+                            ScrollView(.horizontal) {
+                                HStack{
+                                    ForEach(viewModelThemes.cardsThemes) { card in
+                                        //                                    NavigationLink(destination: getThemeView(Theme: card)) {
+                                        Button (action: {
+                                            withAnimation {
+                                                isCountdown = true
+                                                print("copa")
+                                            }
+                                        }, label: {
+                                            Image(ImageConstants.shared.MENU_CARD_COPA)
+                                                .resizable()
+                                            
+                                        }).buttonStyle(CardButtonStyle())
+                                        //                                    }.buttonStyle(CardButtonStyle())
+                                    }.padding(80)
                                 }
-                            }.padding(80)
+                                .padding(-80)
+                                .focusSection()
+                            }
+                            NavigationLink(destination: RulesView()){
+                                Button ("Instruções"){}
+                                    .font(.system(size: 40, weight: .semibold))
+                                    .background(Color(UIColor(red: 20/255, green: 140/255, blue: 0/255, alpha: 1.0)))
+                                    .foregroundColor(.white)
+                                    .cornerRadius(8)
+                                    .buttonStyle(PlainButtonStyle())
+                            }
+                            .focusSection()
+                            .padding(.bottom, 10)
+                            .buttonStyle(CardButtonStyle())
+                            
                         }
-                        .padding(-80)
-                        .focusSection()
+                        
                     }
-                    NavigationLink(destination: RulesView()){
-                        Button ("Instruções"){}
-                        .font(.system(size: 40, weight: .semibold))
-                        .background(Color(UIColor(red: 20/255, green: 140/255, blue: 0/255, alpha: 1.0)))
-                        .foregroundColor(.white)
-                        .cornerRadius(8)
-                        .buttonStyle(PlainButtonStyle())
-                    }
-                    .focusSection()
-                    .padding(.bottom, 10)
-                    .buttonStyle(PlainButtonStyle())
-                    
                 }
-                
-            }
-        }.background(
-            Image(ImageConstants.shared.BACKGROUND)
-                .resizable()
-                .scaledToFill()
-                .edgesIgnoringSafeArea(.all)
-        )
+            }.background(
+                Image(ImageConstants.shared.BACKGROUND)
+                    .resizable()
+                    .scaledToFill()
+                    .edgesIgnoringSafeArea(.all)
+            )
+        } else {
+            CountdownPopUp(show: $isCountdown)
+        }
     }
-    
 }
 
 @ViewBuilder func getThemeView(Theme: CardTheme) -> some View {
