@@ -31,8 +31,6 @@ struct CupView: View {
     @State private var eliminated: [CardPlayer] = []
     @State private var answerUser: [CardPlayer] = []
     
-    @State private var placeholder: String = "premierLeague"
-    
     var body: some View {
         ZStack {
             
@@ -115,7 +113,7 @@ struct CupView: View {
                             }, label: {
                                 ZStack {
                                     
-                                    Image("\(viewModelPlayers.whichImage(eliminatedList: eliminated,player: player, placeholder: placeholder, playerImage: player.image))"
+                                    Image("\(viewModelPlayers.whichImage(eliminatedList: eliminated,player: player, placeholder: player.imageOff, playerImage: player.image))"
                                           
                                     )
                                     .resizable()
