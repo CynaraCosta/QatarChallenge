@@ -6,6 +6,11 @@ struct ChosePopUp: View {
     @Binding var choosenPlayer: [CardPlayer]
     @Binding var eliminates: [CardPlayer]
     @Binding var answerUser: [CardPlayer]
+    @Binding var rightAnswer: Bool
+    
+    @Binding var redPoints: Int
+    @Binding var bluePoints: Int
+    @Binding var whichTeam: Bool
     
     var body: some View {
         if show {
@@ -21,9 +26,23 @@ struct ChosePopUp: View {
                     
                     HStack {
                         Button(action: {
-                            print("verde")
-                            answerUser.append(choosenPlayer[0])
-                            choosenPlayer.removeLast()
+                            if rightAnswer {
+                                if whichTeam {
+                                    bluePoints += 5
+                                } else {
+                                    redPoints += 5
+                                }
+                                //mandar pra tela de fim de jogo
+                            } else {
+                                if whichTeam {
+                                    //azul perdeu
+                                } else {
+                                    //vermelho perdeu
+                                }
+                                //mandar pra tela de fim de jogo, time que chutou perdeu
+                                answerUser.append(choosenPlayer[0])
+                                choosenPlayer.removeLast()
+                            }
                             withAnimation{
                                 show = false
                             }
@@ -35,9 +54,22 @@ struct ChosePopUp: View {
                         }.buttonStyle(CardButtonStyle())
                         
                         Button(action: {
-                            print("vermelho")
-                            eliminates.append(choosenPlayer[0])
-                            choosenPlayer.removeLast()
+                            if rightAnswer {
+                                if whichTeam {
+                                    //azul perdeu
+                                } else {
+                                    //vermelho perdeu
+                                }
+                                //mandar pra tela de fim de jogo, o time que estiver na rodada perde
+                            } else {
+                                if whichTeam {
+                                    bluePoints += 1
+                                } else {
+                                    redPoints += 1
+                                }
+                                eliminates.append(choosenPlayer[0])
+                                choosenPlayer.removeLast()
+                            }
                             withAnimation{
                                 show = false
                             }
