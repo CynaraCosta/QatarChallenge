@@ -27,6 +27,8 @@
 		A4C8B51529392D6E001F3B3F /* ClueAnswer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4C8B51429392D6E001F3B3F /* ClueAnswer.swift */; };
 		A4C8B51729392FD0001F3B3F /* ClueAnswerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4C8B51629392FD0001F3B3F /* ClueAnswerViewModel.swift */; };
 		A4C8B51929393874001F3B3F /* ChosePopUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4C8B51829393874001F3B3F /* ChosePopUp.swift */; };
+		A4C8B51D293A6E70001F3B3F /* ChangeTeamView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4C8B51C293A6E70001F3B3F /* ChangeTeamView.swift */; };
+		A4C8B51F293A780D001F3B3F /* EndGameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4C8B51E293A780D001F3B3F /* EndGameView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -51,6 +53,8 @@
 		A4C8B51429392D6E001F3B3F /* ClueAnswer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClueAnswer.swift; sourceTree = "<group>"; };
 		A4C8B51629392FD0001F3B3F /* ClueAnswerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClueAnswerViewModel.swift; sourceTree = "<group>"; };
 		A4C8B51829393874001F3B3F /* ChosePopUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChosePopUp.swift; sourceTree = "<group>"; };
+		A4C8B51C293A6E70001F3B3F /* ChangeTeamView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeTeamView.swift; sourceTree = "<group>"; };
+		A4C8B51E293A780D001F3B3F /* EndGameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndGameView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -159,6 +163,8 @@
 				0D66F60829368F84009C43DE /* RulesView.swift */,
 				0DDE0413293A357F00944724 /* TitleOverlay.swift */,
 				A4C8B51829393874001F3B3F /* ChosePopUp.swift */,
+				A4C8B51C293A6E70001F3B3F /* ChangeTeamView.swift */,
+				A4C8B51E293A780D001F3B3F /* EndGameView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -245,12 +251,14 @@
 				A4C8B5042932756C001F3B3F /* CardThemeViewModel.swift in Sources */,
 				A4C8B4FE2930F8B9001F3B3F /* CardPlayer.swift in Sources */,
 				A4C8B4EB2930EC15001F3B3F /* ThemesView.swift in Sources */,
+				A4C8B51F293A780D001F3B3F /* EndGameView.swift in Sources */,
 				A4C8B4E92930EC15001F3B3F /* testinhoTVApp.swift in Sources */,
 				A4C8B50629328C78001F3B3F /* CupView.swift in Sources */,
 				0DDE0414293A357F00944724 /* TitleOverlay.swift in Sources */,
 				A4C8B51529392D6E001F3B3F /* ClueAnswer.swift in Sources */,
 				A4C8B51729392FD0001F3B3F /* ClueAnswerViewModel.swift in Sources */,
 				A4C8B5002930F930001F3B3F /* CardPlayerViewModel.swift in Sources */,
+				A4C8B51D293A6E70001F3B3F /* ChangeTeamView.swift in Sources */,
 				A4C8B50E29328FD5001F3B3F /* LaLigaView.swift in Sources */,
 				0D41312A2938EB16004F0C38 /* ImageConstants.swift in Sources */,
 				A4C8B50829328EEE001F3B3F /* BRView.swift in Sources */,
