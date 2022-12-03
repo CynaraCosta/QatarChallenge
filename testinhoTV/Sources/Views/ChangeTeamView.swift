@@ -6,6 +6,7 @@ struct ChangeTeamView: View {
     @Binding var isTimeUp: Bool
     @Binding var time: Int
     @Binding var howManyTimes: Int
+    @Binding var selectedCards: Int
     
     let timerTimer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
     @State var intervalTime: Int = 5
@@ -28,6 +29,7 @@ struct ChangeTeamView: View {
                 time = 59
                 howManyTimes += 1
                 whichTeam.toggle()
+                selectedCards = 2
             }
         }
     }

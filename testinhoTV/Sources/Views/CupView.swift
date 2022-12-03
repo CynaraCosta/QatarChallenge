@@ -26,6 +26,7 @@ struct CupView: View {
     @State private var blurAmount: CGFloat = 32.0
     @State private var bluePoints = 0
     @State private var redPoints = 0
+    @State private var selectedCards = 2
     
     @State var whichTeam: Bool = false
     // true = azul - false = vermelho
@@ -124,6 +125,12 @@ struct CupView: View {
                                     }
                                     isPopUp = true
                                     choose.append(player)
+                                    selectedCards -= 1
+                                    
+                                    if selectedCards == 0 {
+                                        isTimeUp = true
+                                        time = 0
+                                    }
                                     
                                 }
                                 
@@ -150,7 +157,7 @@ struct CupView: View {
             }
             
             else if isTimeUp && howManyClues <= 5{
-                ChangeTeamView(whichTeam: $whichTeam, isTimeUp: $isTimeUp, time: $time, howManyTimes: $howManyClues)
+                ChangeTeamView(whichTeam: $whichTeam, isTimeUp: $isTimeUp, time: $time, howManyTimes: $howManyClues, selectedCards: $selectedCards)
             }
             
             else if howManyClues == 7 {
