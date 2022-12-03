@@ -12,12 +12,11 @@ struct CountdownPopUp: View {
     
     @Binding var show: Bool
     @State var timerRunning = true
-    @State var time: Int = 5
+    @State var time: Int = 2
     
-    @State private var shouldNavigate = false
     @State private var showCountdown = false
     
-    let timerTimer = Timer.publish(every: 0.5, on: .main, in: .common).autoconnect()
+    let timerTimer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
     
     var body: some View {
         NavigationStack{
@@ -34,20 +33,12 @@ struct CountdownPopUp: View {
             .onReceive(timerTimer) { _ in
                 if time > 0 && timerRunning {
                     time -= 1
-                    if time < 4 {
-                        showCountdown = true
-                    }
                 } else {
+                    showCountdown = true
                     timerRunning = false
                     self.timerTimer.upstream.connect().cancel()
-                    self.shouldNavigate = true
-                    print("foi")
                 }
             }
-            .background(
-                NavigationLink(destination: CupView(),
-                               isActive: $shouldNavigate) { EmptyView() }
-            )
         }
     }
 }

@@ -36,10 +36,35 @@ struct TeamsOverlay: View {
 }
 
 struct Countdown: View {
+    let timerTimer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
+    @State var timerRunning = true
+    @State var time: Int = 3
+    
+    @State private var shouldNavigate = false
+    
     var body: some View {
-        Text ("3")
-            .font(.system(size: 320, weight: .bold))
-            .foregroundColor(.black)
+        NavigationStack {
+            ZStack {
+                Text ("\(time)")
+                    .font(.system(size: 320, weight: .bold))
+                    .foregroundColor(.black)
+            }
+            .onReceive(timerTimer) { _ in
+                if time > 1 && timerRunning {
+                    time -= 1
+                } else {
+                    timerRunning = false
+                    shouldNavigate = true
+                    self.timerTimer.upstream.connect().cancel()
+                }
+                
+            }
+            .background(
+                NavigationLink(destination: CupView(),
+                               isActive: $shouldNavigate) { EmptyView() }
+                    .buttonStyle(CardButtonStyle())
+            ) 
+        }
         
     }
 }
