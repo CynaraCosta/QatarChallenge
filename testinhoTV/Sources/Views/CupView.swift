@@ -33,10 +33,11 @@ struct CupView: View {
     @ObservedObject var viewModelPlayers = CardPlayerViewModel()
     @State private var list = CardPlayerViewModel().cardsPlayers.shuffled()
     
-//    @State private var answer = ClueAnswerViewModel().clues.randomElement()!.answer
+    //    @State private var answer = ClueAnswerViewModel().clues.randomElement()!.answer
     
     @State private var clues = ClueAnswerViewModel().clues[0].clues
     @State private var answer = ClueAnswerViewModel().clues[0].answer
+    @State private var rightAnswer = false
     
     @State private var howManyClues: Int = 0
     
@@ -118,13 +119,12 @@ struct CupView: View {
                         ForEach(list) { player in
                             Button (action: {
                                 withAnimation{
-                                    if whichTeam {
-                                        bluePoints += 1
-                                    } else {
-                                        redPoints += 1
+                                    if player.name == answer.lowercased() {
+                                        rightAnswer = true
                                     }
                                     isPopUp = true
                                     choose.append(player)
+                                    
                                 }
                                 
                             }, label: {
@@ -146,7 +146,7 @@ struct CupView: View {
             }
             
             else if isPopUp == true {
-                ChosePopUp(show: $isPopUp, choosenPlayer: $choose, eliminates: $eliminated, answerUser: $answerUser)
+                ChosePopUp(show: $isPopUp, choosenPlayer: $choose, eliminates: $eliminated, answerUser: $answerUser, rightAnswer: $rightAnswer, redPoints: $redPoints, bluePoints: $bluePoints, whichTeam: $whichTeam)
             }
             
             else if isTimeUp && howManyClues <= 5{
@@ -164,7 +164,7 @@ struct CupView: View {
                 time -= 1
             } else {
                 isTimeUp = true
-//                timerRunning = false
+                //                timerRunning = false
             }
             
             
