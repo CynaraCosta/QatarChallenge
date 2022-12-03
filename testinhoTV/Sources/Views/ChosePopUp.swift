@@ -11,6 +11,7 @@ struct ChosePopUp: View {
     @Binding var redPoints: Int
     @Binding var bluePoints: Int
     @Binding var whichTeam: Bool
+    @Binding var finishGame: Bool
     
     var body: some View {
         if show {
@@ -32,14 +33,14 @@ struct ChosePopUp: View {
                                 } else {
                                     redPoints += 5
                                 }
-                                //mandar pra tela de fim de jogo
+                                finishGame = true
                             } else {
                                 if whichTeam {
                                     //azul perdeu
                                 } else {
                                     //vermelho perdeu
                                 }
-                                //mandar pra tela de fim de jogo, time que chutou perdeu
+                                finishGame = true
                                 answerUser.append(choosenPlayer[0])
                                 choosenPlayer.removeLast()
                             }
@@ -60,7 +61,7 @@ struct ChosePopUp: View {
                                 } else {
                                     //vermelho perdeu
                                 }
-                                //mandar pra tela de fim de jogo, o time que estiver na rodada perde
+                                finishGame = true
                             } else {
                                 if whichTeam {
                                     bluePoints += 1

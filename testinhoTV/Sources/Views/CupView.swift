@@ -46,6 +46,8 @@ struct CupView: View {
     @State private var eliminated: [CardPlayer] = []
     @State private var answerUser: [CardPlayer] = []
     
+    @State private var finishGame = false
+    
     var body: some View {
         ZStack {
             
@@ -55,7 +57,7 @@ struct CupView: View {
                 .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
                 .blur(radius: (isPopUp || isTimeUp) && howManyClues != 6 ? blurAmount: 0.0)
             
-            if isPopUp == false && isTimeUp == false && howManyClues <= 6{
+            if isPopUp == false && isTimeUp == false && howManyClues <= 6 && !finishGame{
                 VStack {
                     
                     HStack{
@@ -152,15 +154,15 @@ struct CupView: View {
                 }
             }
             
-            else if isPopUp == true {
-                ChosePopUp(show: $isPopUp, choosenPlayer: $choose, eliminates: $eliminated, answerUser: $answerUser, rightAnswer: $rightAnswer, redPoints: $redPoints, bluePoints: $bluePoints, whichTeam: $whichTeam)
+            else if isPopUp == true && !finishGame {
+                ChosePopUp(show: $isPopUp, choosenPlayer: $choose, eliminates: $eliminated, answerUser: $answerUser, rightAnswer: $rightAnswer, redPoints: $redPoints, bluePoints: $bluePoints, whichTeam: $whichTeam, finishGame: $finishGame)
             }
             
-            else if isTimeUp && howManyClues <= 5{
+            else if isTimeUp && howManyClues <= 5 && !finishGame{
                 ChangeTeamView(whichTeam: $whichTeam, isTimeUp: $isTimeUp, time: $time, howManyTimes: $howManyClues, selectedCards: $selectedCards)
             }
             
-            else if howManyClues == 7 {
+            else if howManyClues == 7 || finishGame {
                 EndGameView()
             }
             
