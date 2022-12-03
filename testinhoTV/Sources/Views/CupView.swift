@@ -24,9 +24,10 @@ struct CupView: View {
     @State private var isPopUp = false
     @State private var isTimeUp = false
     @State private var blurAmount: CGFloat = 32.0
-    @State private var points = 1
+    @State private var bluePoints = 0
+    @State private var redPoints = 0
     
-    @State var whichTeam: Bool = true
+    @State var whichTeam: Bool = false
     // true = azul - false = vermelho
     
     @ObservedObject var viewModelPlayers = CardPlayerViewModel()
@@ -63,7 +64,7 @@ struct CupView: View {
                                 .frame(width: UIScreen.main.bounds.width * 0.04, height: UIScreen.main.bounds.height * 0.07, alignment: .center)
                                 .padding()
                             
-                            Text("\(points)")
+                            Text("\(bluePoints)")
                                 .frame(width: UIScreen.main.bounds.width * 0.02, height: UIScreen.main.bounds.height * 0.065)
                                 .foregroundColor(.black)
                             
@@ -72,7 +73,7 @@ struct CupView: View {
                                 .foregroundColor(.black)
                             
                             
-                            Text("\(points)")
+                            Text("\(redPoints)")
                                 .frame(width: UIScreen.main.bounds.width * 0.02, height: UIScreen.main.bounds.height * 0.065)
                                 .foregroundColor(.black)
                             
@@ -80,7 +81,7 @@ struct CupView: View {
                             Rectangle()
                                 .fill(.red)
                                 .frame(width: UIScreen.main.bounds.width * 0.04, height: UIScreen.main.bounds.height * 0.07, alignment: .center)
-                                .cornerRadius(4)
+                                .cornerRadius(8)
                                 .padding()
                             
                             
@@ -117,7 +118,11 @@ struct CupView: View {
                         ForEach(list) { player in
                             Button (action: {
                                 withAnimation{
-                                    points += 1
+                                    if whichTeam {
+                                        bluePoints += 1
+                                    } else {
+                                        redPoints += 1
+                                    }
                                     isPopUp = true
                                     choose.append(player)
                                 }

@@ -16,9 +16,10 @@ struct ChangeTeamView: View {
                 .resizable()
                 .frame(width: UIScreen.main.bounds.width * 0.67, height: UIScreen.main.bounds.height * 0.168)
             
-            Text("Passe o controle para o time \(whichTeam == true ? "Azul" : "Vermelho")")
+            Text("Passe o controle para o time \(whichTeam == false ? "azul" : "vermelho")")
                 .font(.system(size: 48, weight: .semibold))
                 .foregroundColor(.black)
+            
         }.onReceive(timerTimer) { _ in
             if intervalTime > 0 && isTimeUp {
                 intervalTime -= 1
