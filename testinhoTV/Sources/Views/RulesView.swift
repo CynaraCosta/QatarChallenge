@@ -10,59 +10,56 @@ import SwiftUI
 struct RulesView: View {
     
     @ObservedObject var viewModelThemes = CardRulesViewModel()
-    //@ObservedObject var vuiewModelThemes = CardThemeViewModel()
-    
     var body: some View {
-        ZStack {
+        ZStack{
+            Image("Background")
+                .resizable()
+                .edgesIgnoringSafeArea(.all)
+                .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
             
             NavigationView {
-                VStack(alignment: .center, spacing: 40) {
-                    //                    Text("Escolha o tema")
-                    //                        .font(.system(size: 80, weight: .bold))
-                    //                        .foregroundColor(.primary)
-                    //                        .padding()
-                    
-                    
-                    ScrollView(.horizontal) {
-                        HStack {
-                            ForEach(viewModelThemes.cardsRules) { card in
-                                
-                                //NavigationLink{//destination: getRulesView(Rules: card)) {
-                                ZStack {
+                ScrollView(.horizontal) {
+                    HStack(spacing: 0){
+                        ForEach(viewModelThemes.cardsRules) { card in
+                            Button(action: {}){
+                                ZStack(alignment: .topLeading){
                                     Image("RulesCardImage")
+                                        .resizable()
+                                        .aspectRatio(contentMode: .fit)
+                                    //.frame(height: 650)
+                                        .frame(height: UIScreen.main.bounds.height * 0.65)
                                         .clipShape(RoundedRectangle(cornerRadius: 12 ))
-                                    VStack{
+                                    
+                                    VStack(alignment: .leading){
                                         Text(card.nameRule)
                                             .foregroundColor(.black)
-                                            .font(.system(size: 88, weight: .bold))
+                                            .font(.system(size: 64, weight: .bold))
                                             .padding()
-                                        
+                                            .frame(maxWidth: UIScreen.main.bounds.width * 0.85, alignment: .leading)
                                         Text(card.ruleDescription)
-                                            .foregroundColor(.black)
-                                            .font(.system(size: 20, weight: .bold))
                                             .padding()
-                                    }//.frame(maxHeight: .infinity)
+                                            .foregroundColor(.black)
+                                            .font(.system(size: 40, weight: .regular))
+                                            .fixedSize(horizontal: false, vertical: true)
+                                    }.padding(100)
+                                        .frame(maxWidth: UIScreen.main.bounds.width * 0.85)
                                 }
-                                
                             }.buttonStyle(PlainButtonStyle())
                             
                             
-                            //                        }
-                            
-                            
                         }
-                    }.padding(80)
+                    }
+                    //                }.padding(90)
+                    //                    .padding(-90)
                 }
-                .padding(-80)
-                
             }
-            
         }
+        //            .padding(90)
+        //            .padding(-90)
+        
     }
     
-    
 }
-
 
 
 struct CountentView_Previews: PreviewProvider {
