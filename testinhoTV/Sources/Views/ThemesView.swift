@@ -30,7 +30,7 @@ struct ThemesView: View {
                                     .overlay(TitleOverlay(),alignment: .center)
                                 
                                 ScrollView(.horizontal) {
-                                    HStack{
+                                    HStack(spacing: 0){
                                         ForEach(viewModelThemes.cardsThemes) { card in
                                             Button (action: {
                                                 withAnimation {
@@ -43,6 +43,7 @@ struct ThemesView: View {
                                             }).buttonStyle(CardButtonStyle())
                                         }.padding(80)
                                     }
+                                    .frame(height: 700, alignment: .center)
                                     .padding(-80)
                                     .focusSection()
                                 }
