@@ -10,58 +10,69 @@ import SwiftUI
 struct ThemesView: View {
     
     @ObservedObject var viewModelThemes = CardThemeViewModel()
+    @State private var isCountdown = false
+    @State private var blurAmount: CGFloat = 32.0
     
     var body: some View {
-        ZStack {
+        ZStack{
+            Image("Background")
+                .resizable()
+                .edgesIgnoringSafeArea(.all)
+                .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
+                .blur(radius: isCountdown ? blurAmount: 0.0)
             
-            NavigationView {
-                VStack(alignment: .center, spacing: 40) {
-                    Text("Escolha o tema")
-                        .font(.system(size: 80, weight: .bold))
-                        .foregroundColor(.primary)
-                        .padding()
-                    
-                    
-                    ScrollView(.horizontal) {
-                        HStack {
-                            ForEach(viewModelThemes.cardsThemes) { card in
+            if !isCountdown{
+                ZStack {
+                    NavigationStack{
+                        VStack(alignment: .center,spacing: 80) {
+                            VStack(spacing: 70){
+                                Image(ImageConstants.shared.TITLE_RECTANGLE)
+                                    .overlay(TitleOverlay(),alignment: .center)
                                 
-                                NavigationLink(destination: getThemeView(Theme: card)) {
-                                    VStack {
-                                        Image("premierLeague")
-                                            .clipShape(RoundedRectangle(cornerRadius: 12 ))
-                                        Text(card.nameTheme)
-                                            .foregroundColor(.primary)
-                                            .font(.system(size: 48, weight: .bold))
-                                            .padding()
-                                        
+                                ScrollView(.horizontal) {
+                                    HStack{
+                                        ForEach(viewModelThemes.cardsThemes) { card in
+                                            Button (action: {
+                                                withAnimation {
+                                                    isCountdown = true
+                                                }
+                                            }, label: {
+                                                Image(ImageConstants.shared.MENU_CARD_COPA)
+                                                    .resizable()
+                                                
+                                            }).buttonStyle(CardButtonStyle())
+                                        }.padding(80)
                                     }
-                                    
-                                }.buttonStyle(PlainButtonStyle())
-                                
-                                
-                                //                        }
-                                
+                                    .padding(-80)
+                                    .focusSection()
+                                }
+                                NavigationLink(destination: RulesView()){
+                                    Button ("Instruções"){}
+                                        .font(.system(size: 40, weight: .semibold))
+                                        .background(Color(UIColor(red: 20/255, green: 140/255, blue: 0/255, alpha: 1.0)))
+                                        .foregroundColor(.white)
+                                        .cornerRadius(8)
+                                        .buttonStyle(PlainButtonStyle())
+                                }
+                                .focusSection()
+                                .padding(.bottom, 10)
+                                .buttonStyle(CardButtonStyle())
                                 
                             }
-                        }.padding(80)
+                            
+                        }
                     }
-                    .padding(-80)
-                    
-                }
-                
+                }.background(
+                    Image(ImageConstants.shared.BACKGROUND)
+                        .resizable()
+                        .scaledToFill()
+                        .edgesIgnoringSafeArea(.all)
+                )
+            } else {
+                CountdownPopUp(show: $isCountdown)
             }
         }
-//        }.background(
-//            Image("bgFut")
-//                .resizable()
-//                .scaledToFill()
-//                .edgesIgnoringSafeArea(.all)
-//        )
-        
-        
     }
-    
 }
 
 @ViewBuilder func getThemeView(Theme: CardTheme) -> some View {

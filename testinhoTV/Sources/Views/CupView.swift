@@ -11,7 +11,10 @@ struct CupView: View {
     
     @State var timerRunning = true
     @State var time: Int = 59
+    @State var intervalTime: Int = 5
+    
     let zero = "0"
+    
     let timerTimer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
     
     private let adaptiveColumns = [
@@ -19,19 +22,32 @@ struct CupView: View {
     ]
     
     @State private var isPopUp = false
+    @State private var isTimeUp = false
     @State private var blurAmount: CGFloat = 32.0
-    @State private var points = 1
+    @State private var bluePoints = 0
+    @State private var redPoints = 0
+    @State private var selectedCards = 2
+    
+    @State var whichTeam: Bool = false
+    @State var winner: Bool = true
+    // true = azul - false = vermelho
     
     @ObservedObject var viewModelPlayers = CardPlayerViewModel()
     @State private var list = CardPlayerViewModel().cardsPlayers.shuffled()
     
-    @State private var answer = ClueAnswerViewModel().clues.randomElement()!.answer
+    //    @State private var answer = ClueAnswerViewModel().clues.randomElement()!.answer
+    
+    @State private var clues = ClueAnswerViewModel().clues[0].clues
+    @State private var answer = ClueAnswerViewModel().clues[0].answer
+    @State private var rightAnswer = false
+    
+    @State private var howManyClues: Int = 0
     
     @State private var choose: [CardPlayer] = []
     @State private var eliminated: [CardPlayer] = []
     @State private var answerUser: [CardPlayer] = []
     
-    @State private var placeholder: String = "premierLeague"
+    @State private var finishGame = false
     
     var body: some View {
         ZStack {
@@ -40,9 +56,9 @@ struct CupView: View {
                 .resizable()
                 .edgesIgnoringSafeArea(.all)
                 .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
-                .blur(radius: isPopUp ? blurAmount: 0.0)
+                .blur(radius: (isPopUp || isTimeUp) && howManyClues != 6 ? blurAmount: 0.0)
             
-            if isPopUp == false {
+            if isPopUp == false && isTimeUp == false && howManyClues <= 6 && !finishGame{
                 VStack {
                     
                     HStack{
@@ -53,7 +69,7 @@ struct CupView: View {
                                 .frame(width: UIScreen.main.bounds.width * 0.04, height: UIScreen.main.bounds.height * 0.07, alignment: .center)
                                 .padding()
                             
-                            Text("\(points)")
+                            Text("\(bluePoints)")
                                 .frame(width: UIScreen.main.bounds.width * 0.02, height: UIScreen.main.bounds.height * 0.065)
                                 .foregroundColor(.black)
                             
@@ -62,7 +78,7 @@ struct CupView: View {
                                 .foregroundColor(.black)
                             
                             
-                            Text("\(points)")
+                            Text("\(redPoints)")
                                 .frame(width: UIScreen.main.bounds.width * 0.02, height: UIScreen.main.bounds.height * 0.065)
                                 .foregroundColor(.black)
                             
@@ -70,7 +86,7 @@ struct CupView: View {
                             Rectangle()
                                 .fill(.red)
                                 .frame(width: UIScreen.main.bounds.width * 0.04, height: UIScreen.main.bounds.height * 0.07, alignment: .center)
-                                .cornerRadius(4)
+                                .cornerRadius(8)
                                 .padding()
                             
                             
@@ -90,7 +106,7 @@ struct CupView: View {
                         .background(Rectangle().fill(.white))
                         .cornerRadius(16, corners: [.topRight, .bottomRight])
                         
-                        Text("Olaaaa eu sou uma dica muito grande e você vai precisar de uma quebra de linha")
+                        Text("\(clues[howManyClues])")
                             .frame(width: UIScreen.main.bounds.width * 0.63, height: UIScreen.main.bounds.height * 0.12)
                             .multilineTextAlignment(.center)
                             .font(.system(size: 40, weight: .semibold))
@@ -107,15 +123,24 @@ struct CupView: View {
                         ForEach(list) { player in
                             Button (action: {
                                 withAnimation{
-                                    points += 1
+                                    if player.name == answer.lowercased() {
+                                        rightAnswer = true
+                                    }
                                     isPopUp = true
                                     choose.append(player)
+                                    selectedCards -= 1
+                                    
+                                    if selectedCards == 0 {
+                                        isTimeUp = true
+                                        time = 0
+                                    }
+                                    
                                 }
                                 
                             }, label: {
                                 ZStack {
                                     
-                                    Image("\(viewModelPlayers.whichImage(eliminatedList: eliminated,player: player, placeholder: placeholder, playerImage: player.image))"
+                                    Image("\(viewModelPlayers.whichImage(eliminatedList: eliminated,player: player, placeholder: player.imageOff, playerImage: player.image))"
                                           
                                     )
                                     .resizable()
@@ -128,10 +153,20 @@ struct CupView: View {
                     }.padding()
                     
                 }
-            } else {
-                ChosePopUp(show: $isPopUp, choosenPlayer: $choose, eliminates: $eliminated, answerUser: $answerUser)
             }
             
+            else if isPopUp == true && !finishGame {
+                ChosePopUp(show: $isPopUp, choosenPlayer: $choose, eliminates: $eliminated, answerUser: $answerUser, rightAnswer: $rightAnswer, redPoints: $redPoints, bluePoints: $bluePoints, whichTeam: $whichTeam, finishGame: $finishGame, winningTeam: $winner)
+            }
+            
+            else if isTimeUp && howManyClues <= 5 && !finishGame{
+                ChangeTeamView(whichTeam: $whichTeam, isTimeUp: $isTimeUp, time: $time, howManyTimes: $howManyClues, selectedCards: $selectedCards)
+            }
+            
+            else if howManyClues == 6 || finishGame {
+                EndGameView(winningTeam: $winner)
+                // só o azul está ganhando
+            }
             
         }
         
@@ -139,10 +174,12 @@ struct CupView: View {
             if time > 0 && timerRunning {
                 time -= 1
             } else {
-                timerRunning = false
+                isTimeUp = true
+                //                timerRunning = false
             }
             
             
         }
     }
 }
+

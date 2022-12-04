@@ -10,6 +10,10 @@
 		6E30298F293A36E90005F49C /* RulesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E30298E293A36E90005F49C /* RulesView.swift */; };
 		6E302993293A3C1A0005F49C /* CardRules.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E302992293A3C1A0005F49C /* CardRules.swift */; };
 		6E302997293A3CC60005F49C /* CardRulesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E302996293A3CC60005F49C /* CardRulesViewModel.swift */; };
+		0D41312A2938EB16004F0C38 /* ImageConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D4131292938EB16004F0C38 /* ImageConstants.swift */; };
+		0DC271E5293A438000420473 /* CountdownPopUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DC271E4293A438000420473 /* CountdownPopUp.swift */; };
+		0DC271E7293A46E000420473 /* TeamsOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DC271E6293A46E000420473 /* TeamsOverlay.swift */; };
+		0DDE0414293A357F00944724 /* TitleOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DDE0413293A357F00944724 /* TitleOverlay.swift */; };
 		A4C8B4E92930EC15001F3B3F /* testinhoTVApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4C8B4E82930EC15001F3B3F /* testinhoTVApp.swift */; };
 		A4C8B4EB2930EC15001F3B3F /* ThemesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4C8B4EA2930EC15001F3B3F /* ThemesView.swift */; };
 		A4C8B4ED2930EC16001F3B3F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A4C8B4EC2930EC16001F3B3F /* Assets.xcassets */; };
@@ -27,12 +31,18 @@
 		A4C8B51529392D6E001F3B3F /* ClueAnswer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4C8B51429392D6E001F3B3F /* ClueAnswer.swift */; };
 		A4C8B51729392FD0001F3B3F /* ClueAnswerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4C8B51629392FD0001F3B3F /* ClueAnswerViewModel.swift */; };
 		A4C8B51929393874001F3B3F /* ChosePopUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4C8B51829393874001F3B3F /* ChosePopUp.swift */; };
+		A4C8B51D293A6E70001F3B3F /* ChangeTeamView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4C8B51C293A6E70001F3B3F /* ChangeTeamView.swift */; };
+		A4C8B51F293A780D001F3B3F /* EndGameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4C8B51E293A780D001F3B3F /* EndGameView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		6E30298E293A36E90005F49C /* RulesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RulesView.swift; sourceTree = "<group>"; };
 		6E302992293A3C1A0005F49C /* CardRules.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardRules.swift; sourceTree = "<group>"; };
 		6E302996293A3CC60005F49C /* CardRulesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardRulesViewModel.swift; sourceTree = "<group>"; };
+		0D4131292938EB16004F0C38 /* ImageConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageConstants.swift; sourceTree = "<group>"; };
+		0DC271E4293A438000420473 /* CountdownPopUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountdownPopUp.swift; sourceTree = "<group>"; };
+		0DC271E6293A46E000420473 /* TeamsOverlay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamsOverlay.swift; sourceTree = "<group>"; };
+		0DDE0413293A357F00944724 /* TitleOverlay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleOverlay.swift; sourceTree = "<group>"; };
 		A4C8B4E52930EC15001F3B3F /* testinhoTV.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = testinhoTV.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A4C8B4E82930EC15001F3B3F /* testinhoTVApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = testinhoTVApp.swift; sourceTree = "<group>"; };
 		A4C8B4EA2930EC15001F3B3F /* ThemesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemesView.swift; sourceTree = "<group>"; };
@@ -51,6 +61,8 @@
 		A4C8B51429392D6E001F3B3F /* ClueAnswer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClueAnswer.swift; sourceTree = "<group>"; };
 		A4C8B51629392FD0001F3B3F /* ClueAnswerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClueAnswerViewModel.swift; sourceTree = "<group>"; };
 		A4C8B51829393874001F3B3F /* ChosePopUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChosePopUp.swift; sourceTree = "<group>"; };
+		A4C8B51C293A6E70001F3B3F /* ChangeTeamView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeTeamView.swift; sourceTree = "<group>"; };
+		A4C8B51E293A780D001F3B3F /* EndGameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndGameView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +76,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0D41312B2938EB1E004F0C38 /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				0D4131292938EB16004F0C38 /* ImageConstants.swift */,
+			);
+			path = Constants;
+			sourceTree = "<group>";
+		};
 		A4C8B4DC2930EC15001F3B3F = {
 			isa = PBXGroup;
 			children = (
@@ -107,6 +127,7 @@
 				A4C8B4FA2930F87A001F3B3F /* Views */,
 				A4C8B4F92930F873001F3B3F /* ViewModel */,
 				A4C8B4F82930F86C001F3B3F /* Model */,
+				0D41312B2938EB1E004F0C38 /* Constants */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -150,7 +171,13 @@
 				A4C8B50929328F75001F3B3F /* LegendsView.swift */,
 				A4C8B50B29328FA9001F3B3F /* PremierLeagueView.swift */,
 				A4C8B50D29328FD5001F3B3F /* LaLigaView.swift */,
+				0D66F60829368F84009C43DE /* RulesView.swift */,
+				0DDE0413293A357F00944724 /* TitleOverlay.swift */,
 				A4C8B51829393874001F3B3F /* ChosePopUp.swift */,
+				0DC271E4293A438000420473 /* CountdownPopUp.swift */,
+				0DC271E6293A46E000420473 /* TeamsOverlay.swift */,
+				A4C8B51C293A6E70001F3B3F /* ChangeTeamView.swift */,
+				A4C8B51E293A780D001F3B3F /* EndGameView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -238,17 +265,24 @@
 				6E302997293A3CC60005F49C /* CardRulesViewModel.swift in Sources */,
 				A4C8B5112937E1BA001F3B3F /* RoundedCorner.swift in Sources */,
 				A4C8B5042932756C001F3B3F /* CardThemeViewModel.swift in Sources */,
+				0DC271E5293A438000420473 /* CountdownPopUp.swift in Sources */,
 				A4C8B4FE2930F8B9001F3B3F /* CardPlayer.swift in Sources */,
 				A4C8B4EB2930EC15001F3B3F /* ThemesView.swift in Sources */,
+				A4C8B51F293A780D001F3B3F /* EndGameView.swift in Sources */,
 				A4C8B4E92930EC15001F3B3F /* testinhoTVApp.swift in Sources */,
 				A4C8B50629328C78001F3B3F /* CupView.swift in Sources */,
+				0DDE0414293A357F00944724 /* TitleOverlay.swift in Sources */,
 				A4C8B51529392D6E001F3B3F /* ClueAnswer.swift in Sources */,
 				A4C8B51729392FD0001F3B3F /* ClueAnswerViewModel.swift in Sources */,
 				A4C8B5002930F930001F3B3F /* CardPlayerViewModel.swift in Sources */,
+				A4C8B51D293A6E70001F3B3F /* ChangeTeamView.swift in Sources */,
 				A4C8B50E29328FD5001F3B3F /* LaLigaView.swift in Sources */,
+				0D41312A2938EB16004F0C38 /* ImageConstants.swift in Sources */,
 				A4C8B50829328EEE001F3B3F /* BRView.swift in Sources */,
+				0D66F60929368F84009C43DE /* RulesView.swift in Sources */,
 				A4C8B51929393874001F3B3F /* ChosePopUp.swift in Sources */,
 				A4C8B50A29328F75001F3B3F /* LegendsView.swift in Sources */,
+				0DC271E7293A46E000420473 /* TeamsOverlay.swift in Sources */,
 				A4C8B50C29328FA9001F3B3F /* PremierLeagueView.swift in Sources */,
 				A4C8B5022932751F001F3B3F /* CardTheme.swift in Sources */,
 			);
@@ -379,7 +413,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"testinhoTV/Preview Content\"";
-				DEVELOPMENT_TEAM = 9YF48LKAWG;
+				DEVELOPMENT_TEAM = GMAYGR5U3T;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

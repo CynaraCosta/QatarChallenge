@@ -1,18 +1,22 @@
 {
   "images" : [
     {
+      "filename" : "Back.png",
       "idiom" : "tv",
       "scale" : "1x"
     },
     {
+      "filename" : "Back@2x.png",
       "idiom" : "tv",
       "scale" : "2x"
     },
     {
+      "filename" : "Back 1.png",
       "idiom" : "tv-marketing",
       "scale" : "1x"
     },
     {
+      "filename" : "Back@2x 1.png",
       "idiom" : "tv-marketing",
       "scale" : "2x"
     }

@@ -35,21 +35,21 @@ class CardPlayerViewModel: ObservableObject {
 }
 
 let cardsData = [
-    CardPlayer(name: "messi", image: "messiURL"),
-    CardPlayer(name: "lewandowski", image: "lewandowskiURL"),
-    CardPlayer(name: "aboubakar", image: "aboubakarURL"),
-    CardPlayer(name: "messi", image: "messiURL"),
-    CardPlayer(name: "lewandowski", image: "lewandowskiURL"),
-    CardPlayer(name: "aboubakar", image: "aboubakarURL"),
-    CardPlayer(name: "messi", image: "messiURL"),
-    CardPlayer(name: "lewandowski", image: "lewandowskiURL"),
-    CardPlayer(name: "aboubakar", image: "aboubakarURL"),
-    CardPlayer(name: "messi", image: "messiURL"),
-    CardPlayer(name: "lewandowski", image: "lewandowskiURL"),
-    CardPlayer(name: "aboubakar", image: "aboubakarURL"),
-    CardPlayer(name: "messi", image: "messiURL"),
-    CardPlayer(name: "lewandowski", image: "lewandowskiURL"),
-    CardPlayer(name: "aboubakar", image: "aboubakarURL"),
+    CardPlayer(name: "messi", image: "messiURL", imageOff: "messiOffURL"),
+    CardPlayer(name: "lewandowski", image: "lewandowskiURL", imageOff: "lewandowskiOffURL"),
+    CardPlayer(name: "aboubakar", image: "aboubakarURL", imageOff: "aboubakarOffURL"),
+    CardPlayer(name: "vinijr", image: "vinijrURL", imageOff: "vinijrOffURL"),
+    CardPlayer(name: "gavi", image: "gaviURL", imageOff: "gaviOffURL"),
+    CardPlayer(name: "vlahovic", image: "vlahovicURL", imageOff: "vlahovicOffURL"),
+    CardPlayer(name: "alisson", image: "alissonURL", imageOff: "alissonOffURL"),
+    CardPlayer(name: "neymar", image: "neymarURL", imageOff: "neymarOffURL"),
+    CardPlayer(name: "cr7", image: "cr7URL", imageOff: "cr7OffURL"),
+    CardPlayer(name: "son", image: "sonURL", imageOff: "sonOffURL"),
+    CardPlayer(name: "debruyne", image: "debruyneURL", imageOff: "debruyneOffURL"),
+    CardPlayer(name: "cavani", image: "cavaniURL", imageOff: "cavaniOffURL"),
+    CardPlayer(name: "richarlison", image: "richarlisonURL", imageOff: "richarlisonOffURL"),
+    CardPlayer(name: "mbappe", image: "mbappeURL", imageOff: "mbappeOffURL"),
+    CardPlayer(name: "neuer", image: "neuerURL", imageOff: "neuerOffURL"),
 ]
 
 let players = [

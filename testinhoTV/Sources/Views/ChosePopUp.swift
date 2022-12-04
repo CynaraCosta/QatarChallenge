@@ -6,6 +6,13 @@ struct ChosePopUp: View {
     @Binding var choosenPlayer: [CardPlayer]
     @Binding var eliminates: [CardPlayer]
     @Binding var answerUser: [CardPlayer]
+    @Binding var rightAnswer: Bool
+    
+    @Binding var redPoints: Int
+    @Binding var bluePoints: Int
+    @Binding var whichTeam: Bool
+    @Binding var finishGame: Bool
+    @Binding var winningTeam: Bool
     
     var body: some View {
         if show {
@@ -21,9 +28,32 @@ struct ChosePopUp: View {
                     
                     HStack {
                         Button(action: {
-                            print("verde")
-                            answerUser.append(choosenPlayer[0])
-                            choosenPlayer.removeLast()
+                            if rightAnswer {
+                                if whichTeam {
+                                    bluePoints += 5
+                                } else {
+                                    redPoints += 5
+                                }
+                                
+                                if bluePoints > redPoints {
+                                    winningTeam = true
+                                } else {
+                                    winningTeam = false
+                                }
+                                finishGame = true
+                                
+                            } else {
+                                if whichTeam {
+                                    winningTeam = false
+                                    //azul perdeu
+                                } else {
+                                    winningTeam = true
+                                    //vermelho perdeu
+                                }
+                                finishGame = true
+                                answerUser.append(choosenPlayer[0])
+                                choosenPlayer.removeLast()
+                            }
                             withAnimation{
                                 show = false
                             }
@@ -35,9 +65,24 @@ struct ChosePopUp: View {
                         }.buttonStyle(CardButtonStyle())
                         
                         Button(action: {
-                            print("vermelho")
-                            eliminates.append(choosenPlayer[0])
-                            choosenPlayer.removeLast()
+                            if rightAnswer {
+                                if whichTeam {
+                                    winningTeam = false
+                                    //azul perdeu
+                                } else {
+                                    winningTeam = true
+                                    //vermelho perdeu
+                                }
+                                finishGame = true
+                            } else {
+                                if whichTeam {
+                                    bluePoints += 1
+                                } else {
+                                    redPoints += 1
+                                }
+                                eliminates.append(choosenPlayer[0])
+                                choosenPlayer.removeLast()
+                            }
                             withAnimation{
                                 show = false
                             }
