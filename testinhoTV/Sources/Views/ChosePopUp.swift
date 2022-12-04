@@ -12,6 +12,7 @@ struct ChosePopUp: View {
     @Binding var bluePoints: Int
     @Binding var whichTeam: Bool
     @Binding var finishGame: Bool
+    @Binding var winningTeam: Bool
     
     var body: some View {
         if show {
@@ -33,11 +34,20 @@ struct ChosePopUp: View {
                                 } else {
                                     redPoints += 5
                                 }
+                                
+                                if bluePoints > redPoints {
+                                    winningTeam = true
+                                } else {
+                                    winningTeam = false
+                                }
                                 finishGame = true
+                                
                             } else {
                                 if whichTeam {
+                                    winningTeam = false
                                     //azul perdeu
                                 } else {
+                                    winningTeam = true
                                     //vermelho perdeu
                                 }
                                 finishGame = true
@@ -57,8 +67,10 @@ struct ChosePopUp: View {
                         Button(action: {
                             if rightAnswer {
                                 if whichTeam {
+                                    winningTeam = false
                                     //azul perdeu
                                 } else {
+                                    winningTeam = true
                                     //vermelho perdeu
                                 }
                                 finishGame = true

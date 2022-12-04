@@ -29,6 +29,7 @@ struct CupView: View {
     @State private var selectedCards = 2
     
     @State var whichTeam: Bool = false
+    @State var winner: Bool = true
     // true = azul - false = vermelho
     
     @ObservedObject var viewModelPlayers = CardPlayerViewModel()
@@ -155,15 +156,16 @@ struct CupView: View {
             }
             
             else if isPopUp == true && !finishGame {
-                ChosePopUp(show: $isPopUp, choosenPlayer: $choose, eliminates: $eliminated, answerUser: $answerUser, rightAnswer: $rightAnswer, redPoints: $redPoints, bluePoints: $bluePoints, whichTeam: $whichTeam, finishGame: $finishGame)
+                ChosePopUp(show: $isPopUp, choosenPlayer: $choose, eliminates: $eliminated, answerUser: $answerUser, rightAnswer: $rightAnswer, redPoints: $redPoints, bluePoints: $bluePoints, whichTeam: $whichTeam, finishGame: $finishGame, winningTeam: $winner)
             }
             
             else if isTimeUp && howManyClues <= 5 && !finishGame{
                 ChangeTeamView(whichTeam: $whichTeam, isTimeUp: $isTimeUp, time: $time, howManyTimes: $howManyClues, selectedCards: $selectedCards)
             }
             
-            else if howManyClues == 7 || finishGame {
-                EndGameView()
+            else if howManyClues == 6 || finishGame {
+                EndGameView(winningTeam: $winner)
+                // só o azul está ganhando
             }
             
         }
