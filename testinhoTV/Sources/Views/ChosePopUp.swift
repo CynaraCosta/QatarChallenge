@@ -13,6 +13,7 @@ struct ChosePopUp: View {
     @Binding var whichTeam: Bool
     @Binding var finishGame: Bool
     @Binding var winningTeam: Bool
+    @Binding var howManyClues: Int
     
     var body: some View {
         if show {
@@ -79,6 +80,13 @@ struct ChosePopUp: View {
                                     bluePoints += 1
                                 } else {
                                     redPoints += 1
+                                }
+                                if howManyClues == 6 {
+                                    if bluePoints > redPoints {
+                                        winningTeam = true
+                                    } else {
+                                        winningTeam = false
+                                    }
                                 }
                                 eliminates.append(choosenPlayer[0])
                                 choosenPlayer.removeLast()
