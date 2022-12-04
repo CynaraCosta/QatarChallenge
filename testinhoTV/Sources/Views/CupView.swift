@@ -156,7 +156,7 @@ struct CupView: View {
             }
             
             else if isPopUp == true && !finishGame {
-                ChosePopUp(show: $isPopUp, choosenPlayer: $choose, eliminates: $eliminated, answerUser: $answerUser, rightAnswer: $rightAnswer, redPoints: $redPoints, bluePoints: $bluePoints, whichTeam: $whichTeam, finishGame: $finishGame, winningTeam: $winner)
+                ChosePopUp(show: $isPopUp, choosenPlayer: $choose, eliminates: $eliminated, answerUser: $answerUser, rightAnswer: $rightAnswer, redPoints: $redPoints, bluePoints: $bluePoints, whichTeam: $whichTeam, finishGame: $finishGame, winningTeam: $winner, howManyClues: $howManyClues)
             }
             
             else if isTimeUp && howManyClues <= 5 && !finishGame{
