@@ -10,7 +10,6 @@ class ImageConstants {
     private init(){}
     
     let BACKGROUND = "background-game"
-    let MENU_CARD_COPA = "card-menu"
     let TITLE_RECTANGLE = "title-rectangle"
     let COUNTDOWN_RECTANGLE = "countdown-rectangle"
     let RED_TEAM = "redTeam"

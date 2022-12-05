@@ -30,14 +30,15 @@ struct ThemesView: View {
                                     .overlay(TitleOverlay(),alignment: .center)
                                 
                                 ScrollView(.horizontal) {
-                                    HStack(spacing: 0){
+                                    HStack(spacing: -60){
                                         ForEach(viewModelThemes.cardsThemes) { card in
                                             Button (action: {
                                                 withAnimation {
                                                     isCountdown = true
+                                                    print(card)
                                                 }
                                             }, label: {
-                                                Image(ImageConstants.shared.MENU_CARD_COPA)
+                                                Image(card.imageTheme)
                                                     .resizable()
                                                 
                                             }).buttonStyle(CardButtonStyle())
