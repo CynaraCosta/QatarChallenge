@@ -45,19 +45,25 @@ struct ThemesView: View {
                                     }
                                     .frame(height: 700, alignment: .center)
                                     .padding(-80)
-                                    .focusSection()
-                                }
-                                NavigationLink(destination: RulesView()){
-                                    Button ("Instruções"){}
-                                        .font(.system(size: 40, weight: .semibold))
-                                        .background(Color(UIColor(red: 20/255, green: 140/255, blue: 0/255, alpha: 1.0)))
-                                        .foregroundColor(.white)
-                                        .cornerRadius(8)
-                                        .buttonStyle(PlainButtonStyle())
-                                }
-                                .focusSection()
-                                .padding(.bottom, 10)
-                                .buttonStyle(CardButtonStyle())
+                                }.focusSection()
+                                
+                                HStack {
+                                    Spacer()
+                                    
+                                    NavigationLink(destination: RulesView()){
+                                        Button ("Instruções"){}
+                                            .font(.system(size: 40, weight: .semibold))
+                                            .background(Color(UIColor(red: 20/255, green: 140/255, blue: 0/255, alpha: 1.0)))
+                                            .foregroundColor(.white)
+                                            .cornerRadius(8)
+                                            .buttonStyle(PlainButtonStyle())
+                                    }
+                                    .padding(.bottom, 10)
+                                    .buttonStyle(CardButtonStyle())
+                                    
+                                    Spacer()
+                                    
+                                }.focusSection()
                                 
                             }
                             
