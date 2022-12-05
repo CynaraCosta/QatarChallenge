@@ -21,9 +21,9 @@ class CardThemeViewModel: ObservableObject {
 }
 
 let cardsThemeData = [
-    CardTheme(id: 0, nameTheme: "Copa do Mundo", imageTheme: "laLiga"),
-    CardTheme(id: 1, nameTheme: "Seleção Brasileira", imageTheme: "cbf"),
-    CardTheme(id: 2, nameTheme: "Lendas do futebol", imageTheme: "premierLeague"),
-    CardTheme(id: 3, nameTheme: "Premier League", imageTheme: "cbf"),
-    CardTheme(id: 4, nameTheme: "La Liga", imageTheme: "laLiga"),
+    CardTheme(id: 0, nameTheme: "Copa do Mundo", imageTheme: "copaDoMundo"),
+    CardTheme(id: 1, nameTheme: "Seleção Brasileira", imageTheme: "selecaoBrasileira"),
+    CardTheme(id: 2, nameTheme: "Melhores do mundo", imageTheme: "melhoresDoMundo"),
+    CardTheme(id: 3, nameTheme: "Champions League", imageTheme: "championsLeague"),
+    CardTheme(id: 4, nameTheme: "Brasileirão feminino", imageTheme: "brasileiraoFeminino"),
 ]
